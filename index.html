@@ -1,0 +1,1289 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <meta name="description" content="Sites modernos e responsivos para impulsionar sua presença digital." />
+  <title>GR2 - Soluções Digitais</title>
+
+  <!-- Fontes -->
+  <link href="https://fonts.googleapis.com/css2?family=Michroma&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- SEO -->
+  <meta name="keywords" content="criação de sites, site responsivo, web design, desenvolvimento web, sistemas personalizados">
+  <meta name="author" content="GR2 Soluções Digitais">
+  <meta name="robots" content="index, follow">
+  <meta http-equiv="Content-Language" content="pt-br">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="GR2 Soluções Digitais | Sites Profissionais e Responsivos">
+  <meta property="og:description" content="Impulsione sua presença digital com um site moderno e otimizado.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://gr2sites.com.br">
+  <meta property="og:image" content="https://gr2sites.com.br/imagens/imagem-destaque.jpg">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="GR2 Soluções Digitais | Sites Profissionais e Responsivos">
+  <meta name="twitter:description" content="Criação de sites modernos, rápidos e otimizados para sua empresa.">
+  <meta name="twitter:image" content="https://gr2sites.com.br/imagens/imagem-destaque.jpg">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    
+    @import url('https://fonts.googleapis.com/css2?family=Delicious+Handrawn&display=swap');
+
+    /* ============================================ */
+    /* VARIÁVEIS DE COR - TONS DE AZUL              */
+    /* ============================================ */
+    :root {
+      --azul-escuro: #0a192f;
+      --azul-profundo: #0f2b4d;
+      --azul-medio: #1a3a5f;
+      --azul-oceano: #1e4a76;
+      --azul-cielo: #2c7da0;
+      --azul-bright: #3b82f6;
+      --azul-claro: #61a5c2;
+      --azul-gelo: #e0f2fe;
+      --azul-piscina: #89c2d9;
+      --azul-marinho: #0b3b5a;
+      --azul-cobalto: #004e92;
+      --azul-sky: #38bdf8;
+      --azul-neon: #00b4d8;
+      --sombra-media: 0 10px 30px rgba(0, 0, 0, 0.15);
+      
+      /* Tamanhos padronizados para cards */
+      --card-padding: 35px 25px;
+      --card-padding-mobile: 25px 20px;
+      --card-border-radius: 20px;
+      --icon-size: 52px;
+      --icon-size-mobile: 44px;
+      --title-size: 1.3rem;
+      --title-size-mobile: 1.1rem;
+      --text-size: 0.95rem;
+      --text-size-mobile: 0.85rem;
+    }
+
+    .hand_writh {
+      font-family: "Delicious Handrawn", cursive;
+      font-weight: 500;
+      font-style: normal;
+      max-width: 100%;
+      width: auto;
+      margin: 0 auto;
+      margin-bottom: 0;
+      font-size: 2.8rem;
+    }
+
+    /* ============================================ */
+    /* RESET E CONFIGURAÇÕES GERAIS                 */
+    /* ============================================ */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      padding-top: 80px;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      overflow-x: hidden;
+    }
+
+    main {
+      flex: 1;
+    }
+
+    /* ============================================ */
+    /* HEADER FIXO - TRANSPARENTE COM EFEITO GLASS  */
+    /* ============================================ */
+    .header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 2px 20px rgba(0, 0, 0, 0.45);
+      z-index: 1000;
+      transition: all 0.3s ease;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 80px;
+    }
+
+    .logo {
+      font-family: 'Michroma', sans-serif;
+      font-size: 1.8rem;
+      font-weight: bold;
+      background: linear-gradient(135deg, var(--azul-profundo), var(--azul-bright));
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      text-decoration: none;
+      display: inline-block;
+      line-height: 1;
+    }
+
+    .logo-img {
+      max-width: 150px;
+      height: auto;
+      display: block;
+    }
+
+    .nav-menu {
+      display: flex;
+      list-style: none;
+      gap: 2rem;
+    }
+
+    .nav-menu a {
+      text-decoration: none;
+      color: var(--azul-escuro);
+      font-weight: 500;
+      transition: all 0.3s;
+      position: relative;
+    }
+
+    .nav-menu a::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--azul-bright), var(--azul-neon));
+      transition: width 0.3s ease;
+    }
+
+    .nav-menu a:hover::after {
+      width: 100%;
+    }
+
+    .nav-menu a:hover {
+      color: var(--azul-bright);
+    }
+
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-size: 1.8rem;
+      color: var(--azul-bright);
+      padding: 10px;
+    }
+
+    /* ============================================ */
+    /* EFEITO DE DESLIZAR DA DIREITA PARA O H1     */
+    /* ============================================ */
+    @keyframes slideInRight {
+      0% {
+        opacity: 0;
+        transform: translateX(50px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    #sobre h1 {
+      animation: slideInRight 1s ease-out forwards;
+      opacity: 0;
+    }
+
+    /* ============================================ */
+    /* RESPONSIVIDADE MENU                          */
+    /* ============================================ */
+    @media (max-width: 768px) {
+      .menu-toggle {
+        display: block;
+      }
+
+      .nav-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+      }
+
+      .menu-toggle {
+        margin-left: auto;
+      }
+
+      .nav-menu {
+        position: fixed;
+        top: 80px;
+        left: -100%;
+        width: 100%;
+        height: calc(100vh - 80px);
+        background: linear-gradient(135deg, #ffffff, var(--azul-gelo));
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 2rem;
+        transition: left 0.3s ease;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+      }
+
+      .nav-menu.active {
+        left: 0;
+      }
+
+      .nav-menu li {
+        opacity: 0;
+        transform: translateX(-20px);
+        transition: all 0.3s ease;
+      }
+
+      .nav-menu.active li {
+        opacity: 1;
+        transform: translateX(0);
+      }
+
+      .nav-menu.active li:nth-child(1) { transition-delay: 0.1s; }
+      .nav-menu.active li:nth-child(2) { transition-delay: 0.2s; }
+      .nav-menu.active li:nth-child(3) { transition-delay: 0.3s; }
+      .nav-menu.active li:nth-child(4) { transition-delay: 0.4s; }
+    }
+
+    /* ============================================ */
+    /* BOTÃO WHATSAPP                               */
+    /* ============================================ */
+    .whatsapp-btn {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, #25d366, #128c7e);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+      z-index: 9999;
+      transition: all 0.3s ease;
+      animation: pulse 2s infinite;
+    }
+
+    .whatsapp-btn:hover {
+      transform: scale(1.1);
+      animation: none;
+      box-shadow: 0 8px 25px rgba(37, 211, 102, 0.5);
+    }
+
+    .whatsapp-btn i {
+      font-size: 32px;
+      color: white;
+    }
+
+    @keyframes pulse {
+      0% {
+        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+        transform: scale(1);
+      }
+      70% {
+        box-shadow: 0 0 0 15px rgba(37, 211, 102, 0);
+        transform: scale(1.05);
+      }
+      100% {
+        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+        transform: scale(1);
+      }
+    }
+
+    /* ============================================ */
+    /* SEÇÕES - CADA UMA COM BACKGROUND ÚNICO      */
+    /* ============================================ */
+    section {
+      padding: 80px 20px;
+      min-height: auto;
+      position: relative;
+      box-shadow: var(--sombra-media);
+    }
+
+    /* Seção 1: Bem Vindo - Azul */
+    #sobre {
+      background: #4062d4;
+      text-align: center;
+      padding-top: 80px;
+      padding-bottom: 80px;
+      overflow-x: hidden;
+    }
+
+    #sobre .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      max-width: 1200px;
+      padding: 0 20px;
+    }
+
+    #sobre h1 {
+      margin-bottom: 20px;
+      color: white;
+      font-size: 3rem;
+    }
+
+    #sobre p {
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto 30px auto;
+      padding-bottom: 0;
+      color: white;
+      font-size: 1.1rem;
+      line-height: 1.6;
+    }
+
+    /* Estilo da imagem na seção Bem Vindo - ATUALIZADO */
+    .bemvindo-imagem {
+      max-width: 750px;
+      width: 100%;
+      height: auto;
+      display: inline-block;
+      border-radius: 20px;
+      margin-top: 20px;
+      transition: none;
+      box-shadow: none;
+    }
+
+    .bemvindo-imagem:hover {
+      transform: none;
+    }
+
+    /* Seção 2: Presença Online - Azul Claro */
+    .online-presence {
+      background: linear-gradient(135deg, #dbeafe 0%, #eff6ff 50%, #bfdbfe 100%);
+      position: relative;
+    }
+
+    /* Seção 3: Planos - Azul Médio com gradiente */
+    #planos {
+      background: linear-gradient(135deg, #1e3a5f 0%, #1e40af 50%, #2563eb 100%);
+      position: relative;
+    }
+
+    #planos .section-title {
+      color: #ffffff;
+    }
+
+    #planos .section-title::after {
+      background: linear-gradient(90deg, #60a5fa, #ffffff, #60a5fa);
+    }
+
+    #planos .plano-card h3 {
+      color: var(--azul-escuro);
+    }
+
+    #planos .plano-sub {
+      color: var(--azul-escuro);
+    }
+
+    /* Seção 4: Benefícios - Azul Profundo */
+    .benefits {
+      background: linear-gradient(135deg, #0f2b4d 0%, #1a3a5f 50%, #1e4a76 100%);
+      position: relative;
+    }
+
+    .benefits h2 {
+      color: #ffffff;
+    }
+
+    .benefits h2::after {
+      background: linear-gradient(90deg, #60a5fa, #ffffff, #60a5fa);
+    }
+
+    /* Seção 5: Serviços - Azul Cobalto */
+    #servicos {
+      background: linear-gradient(135deg, #004e92 0%, #003a6b 50%, #002a4d 100%);
+      position: relative;
+      padding-top: 40px;
+    }
+
+    #servicos h2,
+    #servicos p {
+      color: #ffffff;
+    }
+
+    /* ============================================ */
+    /* SEÇÃO SUPORTE - IMAGEM CENTRALIZADA E RESPONSIVA */
+    /* ============================================ */
+    
+    /* Container da imagem */
+    .suporte-imagem-container {
+      text-align: center;
+      margin: 20px 0;
+    }
+    
+    /* Estilo da imagem */
+    .suporte-imagem {
+      max-width: 400px;
+      width: 100%;
+      height: auto;
+      display: inline-block;
+      border-radius: 15px;
+      transition: transform 0.3s ease;
+    }
+    
+    /* Efeito hover suave */
+    .suporte-imagem:hover {
+      transform: scale(1.02);
+    }
+    
+    /* Texto do parágrafo centralizado */
+    .suporte-texto {
+      text-align: center;
+      max-width: 800px;
+      margin: 20px auto 0 auto;
+      color: #ffffff;
+      line-height: 1.6;
+      font-size: 1rem;
+    }
+    
+    /* Responsividade para tablets */
+    @media (max-width: 768px) {
+      .suporte-imagem {
+        max-width: 300px;
+      }
+      
+      .suporte-texto {
+        font-size: 0.95rem;
+        padding: 0 15px;
+      }
+      
+      #sobre h1 {
+        font-size: 2.5rem;
+      }
+      
+      #sobre p {
+        font-size: 1rem;
+        padding: 0 15px;
+      }
+
+      .bemvindo-imagem {
+        max-width: 620px;
+      }
+    }
+    
+    /* Responsividade para celulares */
+    @media (max-width: 480px) {
+      .suporte-imagem {
+        max-width: 250px;
+      }
+      
+      .suporte-texto {
+        font-size: 0.9rem;
+        padding: 0 10px;
+      }
+      
+      #sobre h1 {
+        font-size: 2rem;
+      }
+      
+      #sobre p {
+        font-size: 0.9rem;
+      }
+
+      .bemvindo-imagem {
+        max-width: 500px;
+      }
+    }
+    
+    /* Responsividade para celulares muito pequenos */
+    @media (max-width: 380px) {
+      .suporte-imagem {
+        max-width: 200px;
+      }
+      
+      .suporte-texto {
+        font-size: 0.85rem;
+      }
+      
+      #sobre h1 {
+        font-size: 1.8rem;
+      }
+
+      .bemvindo-imagem {
+        max-width: 420px;
+      }
+    }
+
+    /* ============================================ */
+    /* CARDS PADRONIZADOS - MESMO TAMANHO E COMPORTAMENTO */
+    /* ============================================ */
+    
+    /* Grid padrão para todos os cards */
+    .presence-grid,
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    /* Cards de Planos - grid específico */
+    .planos-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 40px;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    /* ESTILO BASE PARA TODOS OS CARDS */
+    .presence-card,
+    .benefit-card,
+    .plano-card {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      border-radius: var(--card-border-radius);
+      padding: var(--card-padding);
+      text-align: center;
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      border: 1px solid rgba(59, 130, 246, 0.2);
+      
+      /* Garantindo altura consistente */
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 320px;
+    }
+
+    /* Efeito de borda superior no hover (padronizado) */
+    .presence-card::before,
+    .benefit-card::before,
+    .plano-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--azul-bright), var(--azul-neon));
+      transform: scaleX(0);
+      transition: transform 0.4s ease;
+      transform-origin: left;
+    }
+
+    .presence-card:hover::before,
+    .benefit-card:hover::before,
+    .plano-card:hover::before {
+      transform: scaleX(1);
+    }
+
+    /* Efeito hover padronizado */
+    .presence-card:hover,
+    .benefit-card:hover,
+    .plano-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 40px rgba(59, 130, 246, 0.2);
+      border-color: var(--azul-bright);
+    }
+
+    /* Ícones padronizados */
+    .presence-icon,
+    .benefit-icon,
+    .plano-icon {
+      font-size: var(--icon-size);
+      margin-bottom: 20px;
+      display: inline-block;
+      transition: all 0.3s ease;
+      background: linear-gradient(135deg, var(--azul-bright), var(--azul-neon));
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .presence-card:hover .presence-icon,
+    .benefit-card:hover .benefit-icon,
+    .plano-card:hover .plano-icon {
+      transform: scale(1.1) rotate(5deg);
+    }
+
+    /* Títulos padronizados */
+    .presence-card h3,
+    .benefit-card h3,
+    .plano-card h3 {
+      font-size: var(--title-size);
+      font-weight: 600;
+      color: var(--azul-escuro);
+      margin-bottom: 12px;
+      transition: color 0.3s ease;
+    }
+
+    .presence-card:hover h3,
+    .benefit-card:hover h3,
+    .plano-card:hover h3 {
+      color: var(--azul-bright);
+    }
+
+    /* Textos padronizados */
+    .presence-card p,
+    .benefit-card p,
+    .plano-card p {
+      font-size: var(--text-size);
+      color: #4b5563;
+      line-height: 1.5;
+      margin-top: 10px;
+    }
+
+    /* Ajuste específico para planos (header e lista) */
+    .plano-card {
+      padding: 0;
+      justify-content: flex-start;
+      min-height: auto;
+    }
+
+    .plano-header {
+      padding: 35px 30px 25px;
+      text-align: center;
+      border-bottom: 1px solid #e5e7eb;
+    }
+
+    .plano-beneficios {
+      list-style: none;
+      padding: 30px;
+      flex-grow: 1;
+      text-align: left;
+    }
+
+    .plano-beneficios li {
+      padding: 10px 0;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 0.9rem;
+      color: #374151;
+      border-bottom: 1px dashed #e5e7eb;
+    }
+
+    .plano-beneficios li:last-child {
+      border-bottom: none;
+    }
+
+    .plano-beneficios i {
+      color: var(--azul-bright);
+      font-size: 1rem;
+      flex-shrink: 0;
+    }
+
+    .plano-cta {
+      padding: 0 30px 30px;
+    }
+
+    .btn-plano {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      background: linear-gradient(135deg, var(--azul-bright), var(--azul-neon));
+      color: white;
+      text-decoration: none;
+      padding: 14px 20px;
+      border-radius: 50px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+    }
+
+    .btn-plano:hover {
+      transform: scale(1.03);
+      box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4);
+    }
+
+    .plano-obs {
+      font-size: 0.7rem;
+      color: #9ca3af;
+      text-align: center;
+      padding: 0 30px 25px;
+      margin: 0;
+    }
+
+    /* ============================================ */
+    /* TÍTULOS DAS SEÇÕES                          */
+    /* ============================================ */
+    .section-title {
+      text-align: center;
+      font-size: 2.5rem;
+      margin-bottom: 50px;
+      color: var(--azul-escuro);
+      position: relative;
+      display: inline-block;
+      left: 50%;
+      transform: translateX(-50%);
+      white-space: nowrap;
+    }
+
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background: linear-gradient(90deg, var(--azul-bright), var(--azul-neon), var(--azul-bright));
+      border-radius: 3px;
+    }
+
+    .benefits h2 {
+      text-align: center;
+      font-size: 2.5rem;
+      margin-bottom: 40px;
+      position: relative;
+      display: inline-block;
+      left: 50%;
+      transform: translateX(-50%);
+      white-space: nowrap;
+    }
+
+    .benefits h2::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background: linear-gradient(90deg, var(--azul-bright), var(--azul-neon), var(--azul-bright));
+      border-radius: 3px;
+    }
+
+    /* ============================================ */
+    /* EFEITO FADE IN                              */
+    /* ============================================ */
+    .fade-in-section {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    }
+
+    .fade-in-section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ============================================ */
+    /* FOOTER - AZUL ESCURO                        */
+    /* ============================================ */
+    .footer {
+      background: linear-gradient(135deg, #0a1628 0%, #0a192f 50%, #0f172a 100%);
+      padding: 40px 20px;
+      text-align: center;
+      position: relative;
+      margin-top: auto;
+    }
+
+    .social-icons {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 30px;
+      margin-bottom: 20px;
+    }
+
+    .social-icons a {
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .social-icons i {
+      font-size: 28px;
+      color: #94a3b8;
+      transition: all 0.3s ease;
+    }
+
+    .social-icons a:hover i {
+      transform: translateY(-5px);
+      color: var(--azul-bright);
+    }
+
+    .direitos {
+      color: #94a3b8;
+      font-size: 14px;
+      margin: 0;
+    }
+
+    .direitos a {
+      color: #cbd5e1;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .direitos a:hover {
+      color: var(--azul-bright);
+    }
+
+    /* ============================================ */
+    /* RESPONSIVIDADE PADRONIZADA DOS CARDS        */
+    /* ============================================ */
+    
+    /* Tablets */
+    @media (max-width: 768px) {
+      .presence-grid,
+      .benefits-grid {
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 25px;
+        padding: 15px;
+      }
+      
+      .planos-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        padding: 15px;
+      }
+      
+      .presence-card,
+      .benefit-card {
+        padding: var(--card-padding-mobile);
+        min-height: 280px;
+      }
+      
+      .presence-icon,
+      .benefit-icon {
+        font-size: var(--icon-size-mobile);
+      }
+      
+      .presence-card h3,
+      .benefit-card h3 {
+        font-size: var(--title-size-mobile);
+      }
+      
+      .presence-card p,
+      .benefit-card p {
+        font-size: var(--text-size-mobile);
+      }
+      
+      .section-title {
+        font-size: 2rem;
+        white-space: normal;
+      }
+      
+      .benefits h2 {
+        font-size: 2rem;
+        white-space: normal;
+      }
+      
+      .plano-card h3 {
+        font-size: 1.5rem;
+      }
+      
+      h2 {
+        font-size: 1.8rem;
+      }
+
+      #servicos {
+        padding-top: 30px;
+      }
+      
+      #servicos h2 {
+        font-size: 2rem;
+        margin-bottom: 40px;
+      }
+    }
+
+    /* Celulares */
+    @media (max-width: 480px) {
+      .presence-grid,
+      .benefits-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        padding: 10px;
+      }
+      
+      .planos-grid {
+        gap: 25px;
+        padding: 10px;
+      }
+      
+      .presence-card,
+      .benefit-card {
+        padding: 20px 15px;
+        min-height: 260px;
+      }
+      
+      .presence-icon,
+      .benefit-icon {
+        font-size: 40px;
+        margin-bottom: 15px;
+      }
+      
+      .presence-card h3,
+      .benefit-card h3 {
+        font-size: 1rem;
+        margin-bottom: 8px;
+      }
+      
+      .presence-card p,
+      .benefit-card p {
+        font-size: 0.8rem;
+      }
+      
+      .section-title {
+        font-size: 1.8rem;
+      }
+      
+      .benefits h2 {
+        font-size: 1.8rem;
+      }
+      
+      .plano-beneficios li {
+        font-size: 0.85rem;
+      }
+      
+      .plano-header {
+        padding: 25px 20px;
+      }
+      
+      .plano-beneficios {
+        padding: 20px;
+      }
+      
+      .plano-cta {
+        padding: 0 20px 25px;
+      }
+      
+      h2 {
+        font-size: 1.5rem;
+      }
+
+      #servicos {
+        padding-top: 25px;
+      }
+      
+      #servicos h2 {
+        font-size: 1.8rem;
+        margin-bottom: 30px;
+      }
+    }
+
+    /* Celulares muito pequenos */
+    @media (max-width: 500px) {
+      .presence-card,
+      .benefit-card {
+        min-height: 240px;
+      }
+      
+      .presence-icon,
+      .benefit-icon {
+        font-size: 36px;
+      }
+      
+      .presence-card h3,
+      .benefit-card h3 {
+        font-size: 0.95rem;
+      }
+
+      #servicos {
+        padding-top: 20px;
+      }
+    }
+
+    /* SESSÃO 5 - SUPORTE - ESTILOS FINAIS */
+    #servicos h2 {
+      font-size: 2.5rem;
+      text-align: center;
+      margin-top: 0;
+      margin-bottom: 50px;
+    }
+    
+  </style>
+  
+</head>
+<body>
+
+  <header class="header">
+    <div class="container">
+      <div class="nav-container">
+        <a href="/" class="logo">
+          <img src="imagens/logo_002.png" alt="GR2 Soluções Digitais - Página inicial" class="logo-img">
+        </a>
+        
+        <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu">
+          ☰
+        </button>
+
+        <nav role="navigation" aria-label="Menu principal">
+          <ul class="nav-menu" id="navMenu">
+            <li><a href="#sobre">Início</a></li>
+            <li><a href="#vantagens">Vantagens</a></li>
+            <li><a href="#planos">Planos</a></li>
+            <li><a href="#servicos">Serviços</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- SEÇÃO 1: BEM VINDO COM IMAGEM CENTRALIZADA -->
+    <section id="sobre" class="fade-in-section">
+      <div class="container">
+        <h1>Bem Vindo</h1>
+        <p>Na <strong>GR2</strong>, você conta com <strong>especialistas</strong> dedicados a fortalecer sua presença digital, desenvolver <strong>soluções estratégicas</strong> que resolvem suas principais demandas e entregar resultados que outras empresas não conseguem oferecer. Tudo isso para ajudar você a conquistar <strong>mais clientes</strong> e crescer de forma consistente.</p>
+        
+        <!-- Container para centralizar a imagem -->
+        <div class="bemvindo-imagem-container">
+          <img src="imagens/imagem_001.png" alt="GR2 Soluções Digitais - Transformação digital" class="bemvindo-imagem">
+        </div>
+      </div>
+    </section>
+    
+    <!-- SEÇÃO 2: PRESENÇA ONLINE -->
+    <section class="online-presence fade-in-section">
+      <div class="container">
+        <h2 class="section-title">Presença online gera:</h2>
+        <div class="presence-grid">
+          <div class="presence-card">
+            <div class="presence-icon"><i class="bi bi-eye"></i></div>
+            <h3>+ Mais visibilidade</h3>
+            <p>Seja encontrado por mais clientes nos mecanismos de busca</p>
+          </div>
+          <div class="presence-card">
+            <div class="presence-icon"><i class="bi bi-shield-check"></i></div>
+            <h3>+ Mais credibilidade</h3>
+            <p>Construa confiança e autoridade no seu mercado de atuação</p>
+          </div>
+          <div class="presence-card">
+            <div class="presence-icon"><i class="bi bi-people"></i></div>
+            <h3>+ Mais clientes</h3>
+            <p>Atraia um público qualificado e interessado nos seus serviços</p>
+          </div>
+          <div class="presence-card">
+            <div class="presence-icon"><i class="bi bi-graph-up"></i></div>
+            <h3>+ Mais vendas</h3>
+            <p>Converta visitantes em clientes com estratégias eficientes</p>
+          </div>
+        </div>
+       
+      </div>
+    </section>
+
+    <!-- SEÇÃO 3: PLANOS -->
+    <section id="planos" class="fade-in-section">
+      <div class="container">
+        <h2 class="section-title">Nossos Serviços</h2>
+        <div class="planos-grid">
+          
+          <div class="plano-card">
+            <div class="plano-header">
+              <div class="plano-icon"><i class="bi bi-window-stack"></i></div>
+              <h3>Sites Premium</h3>
+              <p class="plano-sub">Ideal para sua presença digital</p>
+            </div>
+            
+            <ul class="plano-beneficios">
+              <li><i class="bi bi-check-circle-fill"></i> Site responsivo (celular, tablet, PC)</li>              
+              <li><i class="bi bi-check-circle-fill"></i> Hospedagem inclusa</li>              
+              <li><i class="bi bi-check-circle-fill"></i> SEO para Google</li>
+              <li><i class="bi bi-check-circle-fill"></i> Suporte técnico mensal</li>
+              <li><i class="bi bi-check-circle-fill"></i> Até 5 sessões</li>
+              <li><i class="bi bi-check-circle-fill"></i> Botão Whatsapp</li>
+              <li><i class="bi bi-check-circle-fill"></i> Conexão com redes sociais</li>
+              <li><i class="bi bi-check-circle-fill"></i> Backups de segurança</li>
+              <li><i class="bi bi-check-circle-fill"></i> Segurança com SSL</li>
+            </ul>
+            
+            <div class="plano-cta">
+              <a href="https://wa.me/5516992976187?text=Olá!%20Gostaria%20de%20mais%20informações%20sobre%20o%20plano%20Sites%20Premium." class="btn-plano" target="_blank">
+                <i class="bi bi-whatsapp"></i> Falar com especialista
+              </a>
+            </div>
+          </div>
+          
+          <div class="plano-card">
+            <div class="plano-header">
+              <div class="plano-icon"><i class="bi bi-code-square"></i></div>
+              <h3>Sistema Personalizado</h3>
+              <p class="plano-sub">Sob medida para o seu negócio</p>
+            </div>
+            
+            <ul class="plano-beneficios">
+              <li><i class="bi bi-check-circle-fill"></i> Desenvolvimento completo</li>
+              <li><i class="bi bi-check-circle-fill"></i> Cadastro de Clientes</li>
+              <li><i class="bi bi-check-circle-fill"></i> Controle de estoque</li>
+              <li><i class="bi bi-check-circle-fill"></i> Agendamento de horários</li>
+              <li><i class="bi bi-check-circle-fill"></i> Emissão de pedidos</li>
+              <li><i class="bi bi-check-circle-fill"></i> Controle de usuários e permissões</li>
+              <li><i class="bi bi-check-circle-fill"></i> Hospedagem dedicada</li>
+              <li><i class="bi bi-check-circle-fill"></i> Suporte humanizado</li>
+            </ul>
+            
+            <div class="plano-cta">
+              <a href="https://wa.me/5516992976187?text=Olá!%20Gostaria%20de%20mais%20informações%20sobre%20o%20plano%20Sistema%20Personalizado." class="btn-plano" target="_blank">
+                <i class="bi bi-whatsapp"></i> Solicitar orçamento
+              </a>
+            </div>
+            <p class="plano-obs">*Projeto sob consulta. Entre em contato para detalhes.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SEÇÃO 4: VANTAGENS -->
+    <section class="benefits fade-in-section" id="vantagens">
+      <h2>O que oferecemos</h2>
+      <div class="benefits-container">
+        <div class="benefits-grid">
+          <div class="benefit-card">
+            <div class="benefit-icon"><i class="bi bi-credit-card"></i></div>
+            <h3>PAGAMENTO FACILITADO</h3>
+            <p>Consulte condições especiais</p>
+          </div>
+          <div class="benefit-card">
+            <div class="benefit-icon"><i class="bi bi-lightning-charge"></i></div>
+            <h3>ENTREGA RÁPIDA</h3>
+            <p>Desenvolvimento ágil e eficiente</p>
+          </div>
+          <div class="benefit-card">
+            <div class="benefit-icon"><i class="bi bi-check-circle"></i></div>
+            <h3>CONTEÚDO REVISADO</h3>
+            <p>Garantia de qualidade em cada detalhe</p>
+          </div>
+          <div class="benefit-card">
+            <div class="benefit-icon"><i class="bi bi-phone"></i></div>
+            <h3>DESIGN 100% RESPONSIVO</h3>
+            <p>Perfeito em todos os tamanhos de tela</p>
+          </div>                
+          <div class="benefit-card">
+            <div class="benefit-icon"><i class="bi bi-search"></i></div>
+            <h3>SEO OTIMIZADO</h3>
+            <p>Melhor posição nas buscas do Google</p>
+          </div>
+          <div class="benefit-card">
+            <div class="benefit-icon"><i class="bi bi-rocket-takeoff"></i></div>
+            <h3>SITE ULTRA RÁPIDO</h3>
+            <p>Carregamento otimizado e performance máxima</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SEÇÃO 5: SUPORTE -->
+    <section id="servicos" class="fade-in-section">
+      <div class="container">
+        <h2>Suporte humanizado</h2>
+        
+        <!-- Container para centralizar a imagem -->
+        <div class="suporte-imagem-container">
+          <img src="imagens/Imagem_suporte_002.png" alt="Suporte humanizado GR2 - Atendimento personalizado" class="suporte-imagem">
+        </div>
+        
+        <!-- Parágrafo centralizado -->
+        <p class="suporte-texto">
+          Quando precisar, terá suporte de um especialista para tirar suas dúvidas, sobre impulsionamento, 
+          tráfego pago, maneiras de aumentar suas visualizações nos mecanismos de buscas
+          e muito mais.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="social-icons">
+      <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+        <i class="bi bi-instagram"></i>
+      </a>
+      <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+        <i class="bi bi-linkedin"></i>
+      </a>
+      <a href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+        <i class="bi bi-youtube"></i>
+      </a>
+      <a href="https://www.tiktok.com/" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
+        <i class="bi bi-tiktok"></i>
+      </a>
+    </div>
+    <p class="direitos">Desenvolvido por <a href="https://www.gr2sites.com.br" target="_blank" rel="noopener noreferrer"><strong>GR2 Sites e Sistemas</strong></a> - Todos os direitos reservados</p>
+  </footer>
+
+  <a href="https://wa.me/5516992976187?text=Olá!%20Gostaria%20de%20mais%20informações%20sobre%20os%20serviços." 
+     class="whatsapp-btn" 
+     target="_blank" 
+     rel="noopener noreferrer"
+     aria-label="Fale conosco pelo WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+
+  <script>
+    // Menu mobile
+    const menuToggle = document.getElementById('menuToggle');
+    const navMenu = document.getElementById('navMenu');
+
+    menuToggle.addEventListener('click', () => {
+      navMenu.classList.toggle('active');
+      
+      if (navMenu.classList.contains('active')) {
+        menuToggle.textContent = '✕';
+        menuToggle.setAttribute('aria-label', 'Fechar menu');
+      } else {
+        menuToggle.textContent = '☰';
+        menuToggle.setAttribute('aria-label', 'Abrir menu');
+      }
+    });
+
+    const menuLinks = document.querySelectorAll('.nav-menu a');
+    menuLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        navMenu.classList.remove('active');
+        menuToggle.textContent = '☰';
+        menuToggle.setAttribute('aria-label', 'Abrir menu');
+      });
+    });
+
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 768) {
+        navMenu.classList.remove('active');
+        menuToggle.textContent = '☰';
+      }
+    });
+
+    // Fade-in sections
+    const fadeElements = document.querySelectorAll('.fade-in-section');
+    
+    function checkVisibility() {
+      fadeElements.forEach(element => {
+        const elementTop = element.getBoundingClientRect().top;
+        const elementBottom = element.getBoundingClientRect().bottom;
+        const windowHeight = window.innerHeight;
+        
+        if (elementTop < windowHeight - 100 && elementBottom > 0) {
+          element.classList.add('visible');
+        }
+      });
+    }
+    
+    window.addEventListener('load', checkVisibility);
+    window.addEventListener('scroll', checkVisibility);
+    window.addEventListener('resize', checkVisibility);
+    
+    setTimeout(checkVisibility, 100);
+  </script>
+
+</body>
+</html>

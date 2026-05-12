@@ -381,6 +381,7 @@
     #planos {
       background: linear-gradient(135deg, #1e3a5f 0%, #1e40af 50%, #2563eb 100%);
       position: relative;
+      overflow: hidden;
     }
 
     #planos .section-title {
@@ -543,16 +544,6 @@
       padding: 20px;
     }
 
-    /* Cards de Planos - grid específico */
-    .planos-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 40px;
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 20px;
-    }
-
     /* ESTILO BASE PARA TODOS OS CARDS */
     .presence-card,
     .benefit-card,
@@ -654,11 +645,33 @@
       margin-top: 10px;
     }
 
+    /* ============================================ */
+    /* ESTILOS ESPECÍFICOS DA SEÇÃO DE PLANOS       */
+    /* ============================================ */
+    
+    /* Container do carrossel */
+    .planos-carousel-container {
+      position: relative;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    /* Grid de planos - versão desktop */
+    .planos-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 40px;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
     /* Ajuste específico para planos (header e lista) */
     .plano-card {
       padding: 0;
       justify-content: flex-start;
       min-height: auto;
+      cursor: default;
     }
 
     .plano-header {
@@ -724,6 +737,84 @@
       text-align: center;
       padding: 0 30px 25px;
       margin: 0;
+    }
+
+    /* ============================================ */
+    /* CARROSSEL PARA DISPOSITIVOS MÓVEIS           */
+    /* ============================================ */
+    
+    @media (max-width: 768px) {
+      .planos-carousel-container {
+        overflow-x: auto;
+        overflow-y: hidden;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        scroll-behavior: smooth;
+        padding: 20px 0;
+        margin: 0 -20px;
+        position: relative;
+      }
+      
+      .planos-carousel-container::-webkit-scrollbar {
+        height: 8px;
+      }
+      
+      .planos-carousel-container::-webkit-scrollbar-track {
+        background: rgba(255, 255, 255, 0.2);
+        border-radius: 10px;
+      }
+      
+      .planos-carousel-container::-webkit-scrollbar-thumb {
+        background: linear-gradient(135deg, var(--azul-bright), var(--azul-neon));
+        border-radius: 10px;
+      }
+      
+      .planos-grid {
+        display: flex;
+        flex-direction: row;
+        gap: 20px;
+        padding: 10px 20px;
+        width: max-content;
+        min-width: 100%;
+      }
+      
+      .plano-card {
+        flex: 0 0 85%;
+        scroll-snap-align: center;
+        margin: 0 auto;
+        max-width: 320px;
+      }
+      
+      /* Indicadores do carrossel */
+      .carousel-dots {
+        display: flex;
+        justify-content: center;
+        gap: 12px;
+        margin-top: 20px;
+        padding: 10px;
+      }
+      
+      .carousel-dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.4);
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+      
+      .carousel-dot.active {
+        background: linear-gradient(135deg, var(--azul-bright), var(--azul-neon));
+        width: 30px;
+        border-radius: 5px;
+      }
+    }
+    
+    /* Desktop - esconder indicadores */
+    @media (min-width: 769px) {
+      .carousel-dots {
+        display: none;
+      }
     }
 
     /* ============================================ */
@@ -852,12 +943,6 @@
         padding: 15px;
       }
       
-      .planos-grid {
-        grid-template-columns: 1fr;
-        gap: 30px;
-        padding: 15px;
-      }
-      
       .presence-card,
       .benefit-card {
         padding: var(--card-padding-mobile);
@@ -913,11 +998,6 @@
       .benefits-grid {
         grid-template-columns: 1fr;
         gap: 20px;
-        padding: 10px;
-      }
-      
-      .planos-grid {
-        gap: 25px;
         padding: 10px;
       }
       
@@ -1084,54 +1164,99 @@
       </div>
     </section>
 
-    <!-- SEÇÃO 3: PLANOS -->
+    <!-- SEÇÃO 3: PLANOS COM CARROSSEL -->
     <section id="planos" class="fade-in-section">
       <div class="container">
         <h2 class="section-title">Nossos Planos</h2>
-        <div class="planos-grid">
-          
-          <div class="plano-card">
-            <div class="plano-header">
-              <div class="plano-icon"><i class="bi bi-window-stack"></i></div>
-              <h3>Plano Básico</h3>
-              <p class="plano-sub">Ideal para sua presença digital</p>
+        
+        <div class="planos-carousel-container" id="planosCarousel">
+          <div class="planos-grid" id="planosGrid">
+            
+            <!-- Plano 1: Básico (Original) -->
+            <div class="plano-card">
+              <div class="plano-header">
+                <div class="plano-icon"><i class="bi bi-window-stack"></i></div>
+                <h3>Plano Básico</h3>
+                <p class="plano-sub">Ideal para sua presença digital</p>
+              </div>
+              
+              <ul class="plano-beneficios">
+                <li><i class="bi bi-check-circle-fill"></i> Site responsivo (celular, tablet, PC)</li>              
+                <li><i class="bi bi-check-circle-fill"></i> SEO para Google</li>
+                <li><i class="bi bi-check-circle-fill"></i> Suporte técnico mensal</li>
+                <li><i class="bi bi-check-circle-fill"></i> Landing page profissional</li>
+                <li><i class="bi bi-check-circle-fill"></i> Botão Whatsapp</li>
+                <li><i class="bi bi-check-circle-fill"></i> Conexão com redes sociais</li>              
+                <li><i class="bi bi-check-circle-fill"></i> Segurança com SSL</li>
+              </ul>
+              
+              <div class="plano-cta">
+                <a href="https://wa.me/5516992976187?text=Olá!%20Gostaria%20de%20mais%20informações%20sobre%20o%20Plano%20Básico." class="btn-plano" target="_blank">
+                  <i class="bi bi-whatsapp"></i> Quero este plano
+                </a>
+              </div>
             </div>
             
-            <ul class="plano-beneficios">
-              <li><i class="bi bi-check-circle-fill"></i> Site responsivo (celular, tablet, PC)</li>              
-                            
-              <li><i class="bi bi-check-circle-fill"></i> SEO para Google</li>
-              <li><i class="bi bi-check-circle-fill"></i> Suporte técnico mensal</li>
-              <li><i class="bi bi-check-circle-fill"></i> Landing page profissional</li>
-              <li><i class="bi bi-check-circle-fill"></i> Botão Whatsapp</li>
-              <li><i class="bi bi-check-circle-fill"></i> Conexão com redes sociais</li>              
-              <li><i class="bi bi-check-circle-fill"></i> Segurança com SSL</li>
-            </ul>
-                        
-          </div>
-          
-          <div class="plano-card">
-            <div class="plano-header">
-              <div class="plano-icon"><i class="bi bi-code-square"></i></div>
-              <h3>Sistema Personalizado</h3>
-              <p class="plano-sub">Sob medida para o seu negócio</p>
+            <!-- Plano 2: Sistema Personalizado (Original) -->
+            <div class="plano-card">
+              <div class="plano-header">
+                <div class="plano-icon"><i class="bi bi-code-square"></i></div>
+                <h3>Sistema Personalizado</h3>
+                <p class="plano-sub">Sob medida para o seu negócio</p>
+              </div>
+              
+              <ul class="plano-beneficios">
+                <li><i class="bi bi-check-circle-fill"></i> Desenvolvimento completo</li>
+                <li><i class="bi bi-check-circle-fill"></i> Cadastro de Clientes</li>
+                <li><i class="bi bi-check-circle-fill"></i> Controle de estoque</li>
+                <li><i class="bi bi-check-circle-fill"></i> Agendamento de horários</li>
+                <li><i class="bi bi-check-circle-fill"></i> Emissão de pedidos</li>
+                <li><i class="bi bi-check-circle-fill"></i> Controle de usuários e permissões</li>
+                <li><i class="bi bi-check-circle-fill"></i> Hospedagem dedicada</li>
+                <li><i class="bi bi-check-circle-fill"></i> Suporte humanizado</li>
+              </ul>
+              
+              <div class="plano-cta">
+                <a href="https://wa.me/5516992976187?text=Olá!%20Gostaria%20de%20mais%20informações%20sobre%20o%20Sistema%20Personalizado." class="btn-plano" target="_blank">
+                  <i class="bi bi-whatsapp"></i> Solicitar orçamento
+                </a>
+              </div>
+              <p class="plano-obs">*Projeto sob consulta. Entre em contato para detalhes.</p>
             </div>
             
-            <ul class="plano-beneficios">
-              <li><i class="bi bi-check-circle-fill"></i> Desenvolvimento completo</li>
-              <li><i class="bi bi-check-circle-fill"></i> Cadastro de Clientes</li>
-              <li><i class="bi bi-check-circle-fill"></i> Controle de estoque</li>
-              <li><i class="bi bi-check-circle-fill"></i> Agendamento de horários</li>
-              <li><i class="bi bi-check-circle-fill"></i> Emissão de pedidos</li>
-              <li><i class="bi bi-check-circle-fill"></i> Controle de usuários e permissões</li>
-              <li><i class="bi bi-check-circle-fill"></i> Hospedagem dedicada</li>
-              <li><i class="bi bi-check-circle-fill"></i> Suporte humanizado</li>
-            </ul>
+            <!-- Plano 3: Plano Profissional (NOVO CARD) -->
+            <div class="plano-card">
+              <div class="plano-header">
+                <div class="plano-icon"><i class="bi bi-rocket-takeoff"></i></div>
+                <h3>Plano Profissional</h3>
+                <p class="plano-sub">Performance e resultados avançados</p>
+              </div>
+              
+              <ul class="plano-beneficios">
+                <li><i class="bi bi-check-circle-fill"></i> Tudo do Plano Básico</li>
+                <li><i class="bi bi-check-circle-fill"></i> E-commerce completo</li>
+                <li><i class="bi bi-check-circle-fill"></i> Painel administrativo</li>
+                <li><i class="bi bi-check-circle-fill"></i> Otimização de velocidade avançada</li>
+                <li><i class="bi bi-check-circle-fill"></i> Backup automático semanal</li>
+                <li><i class="bi bi-check-circle-fill"></i> Relatórios de desempenho mensais</li>
+                <li><i class="bi bi-check-circle-fill"></i> Suporte prioritário 24/7</li>
+                <li><i class="bi bi-check-circle-fill"></i> Manutenção mensal inclusa</li>
+              </ul>
+              
+              <div class="plano-cta">
+                <a href="https://wa.me/5516992976187?text=Olá!%20Gostaria%20de%20mais%20informações%20sobre%20o%20Plano%20Profissional." class="btn-plano" target="_blank">
+                  <i class="bi bi-whatsapp"></i> Falar com especialista
+                </a>
+              </div>
+              <p class="plano-obs">*Ideal para empresas em crescimento.</p>
+            </div>
             
-           
-            <p class="plano-obs">*Projeto sob consulta. Entre em contato para detalhes.</p>
           </div>
         </div>
+        
+        <!-- Indicadores do carrossel (aparecem apenas em mobile) -->
+        <div class="carousel-dots" id="carouselDots"></div>
+        
       </div>
     </section>
 
@@ -1273,6 +1398,157 @@
     window.addEventListener('resize', checkVisibility);
     
     setTimeout(checkVisibility, 100);
+    
+    // ============================================
+    // CARROSSEL DE PLANOS PARA DISPOSITIVOS MÓVEIS
+    // ============================================
+    
+    const carouselContainer = document.getElementById('planosCarousel');
+    const planosGrid = document.getElementById('planosGrid');
+    const dotsContainer = document.getElementById('carouselDots');
+    const planosCards = document.querySelectorAll('.plano-card');
+    
+    let autoScrollInterval;
+    let currentIndex = 0;
+    let isMobile = window.innerWidth <= 768;
+    
+    // Função para criar os dots (indicadores)
+    function createDots() {
+      if (!dotsContainer) return;
+      
+      dotsContainer.innerHTML = '';
+      planosCards.forEach((_, index) => {
+        const dot = document.createElement('div');
+        dot.classList.add('carousel-dot');
+        if (index === 0) dot.classList.add('active');
+        dot.addEventListener('click', () => {
+          scrollToCard(index);
+          resetAutoScroll();
+        });
+        dotsContainer.appendChild(dot);
+      });
+    }
+    
+    // Função para atualizar o dot ativo baseado na posição de scroll
+    function updateActiveDot() {
+      if (!isMobile || !carouselContainer) return;
+      
+      const scrollPosition = carouselContainer.scrollLeft;
+      const cardWidth = planosCards[0]?.offsetWidth || 0;
+      const gap = 20; // gap entre os cards em px
+      const cardTotalWidth = cardWidth + gap;
+      
+      if (cardTotalWidth > 0) {
+        currentIndex = Math.round(scrollPosition / cardTotalWidth);
+        currentIndex = Math.min(currentIndex, planosCards.length - 1);
+        currentIndex = Math.max(currentIndex, 0);
+        
+        const dots = document.querySelectorAll('.carousel-dot');
+        dots.forEach((dot, idx) => {
+          if (idx === currentIndex) {
+            dot.classList.add('active');
+          } else {
+            dot.classList.remove('active');
+          }
+        });
+      }
+    }
+    
+    // Função para scroll automático
+    function autoScroll() {
+      if (!isMobile || !carouselContainer) return;
+      
+      const cardWidth = planosCards[0]?.offsetWidth || 0;
+      const gap = 20;
+      const cardTotalWidth = cardWidth + gap;
+      
+      if (cardTotalWidth > 0 && planosCards.length > 0) {
+        currentIndex = (currentIndex + 1) % planosCards.length;
+        const scrollTo = currentIndex * cardTotalWidth;
+        carouselContainer.scrollTo({
+          left: scrollTo,
+          behavior: 'smooth'
+        });
+      }
+    }
+    
+    // Função para scroll manual até um card específico
+    function scrollToCard(index) {
+      if (!isMobile || !carouselContainer) return;
+      
+      const cardWidth = planosCards[0]?.offsetWidth || 0;
+      const gap = 20;
+      const cardTotalWidth = cardWidth + gap;
+      
+      if (cardTotalWidth > 0) {
+        currentIndex = index;
+        const scrollTo = currentIndex * cardTotalWidth;
+        carouselContainer.scrollTo({
+          left: scrollTo,
+          behavior: 'smooth'
+        });
+      }
+    }
+    
+    // Função para resetar o auto-scroll
+    function resetAutoScroll() {
+      if (autoScrollInterval) {
+        clearInterval(autoScrollInterval);
+        autoScrollInterval = setInterval(autoScroll, 5000);
+      }
+    }
+    
+    // Função para iniciar o carrossel
+    function initCarousel() {
+      isMobile = window.innerWidth <= 768;
+      
+      if (isMobile && planosCards.length > 0) {
+        createDots();
+        
+        // Adicionar listeners de scroll
+        if (carouselContainer) {
+          carouselContainer.addEventListener('scroll', updateActiveDot);
+          carouselContainer.addEventListener('touchend', resetAutoScroll);
+          carouselContainer.addEventListener('scrollend', resetAutoScroll);
+        }
+        
+        // Iniciar auto-scroll
+        if (autoScrollInterval) clearInterval(autoScrollInterval);
+        autoScrollInterval = setInterval(autoScroll, 5000);
+        
+        // Garantir que o primeiro dot está ativo
+        setTimeout(() => updateActiveDot(), 100);
+      } else {
+        // Em desktop, parar o auto-scroll e limpar dots
+        if (autoScrollInterval) {
+          clearInterval(autoScrollInterval);
+        }
+        if (dotsContainer) {
+          dotsContainer.innerHTML = '';
+        }
+      }
+    }
+    
+    // Observar mudanças de tamanho da tela
+    let resizeTimer;
+    window.addEventListener('resize', () => {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(() => {
+        initCarousel();
+      }, 250);
+    });
+    
+    // Iniciar carrossel quando o DOM estiver carregado
+    document.addEventListener('DOMContentLoaded', () => {
+      initCarousel();
+    });
+    
+    // Reiniciar carrossel após o fade-in (para garantir que os cards estejam visíveis)
+    setTimeout(() => {
+      if (window.innerWidth <= 768) {
+        updateActiveDot();
+      }
+    }, 500);
   </script>
 
 </body>

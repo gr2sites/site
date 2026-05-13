@@ -355,7 +355,7 @@
       line-height: 1.6;
     }
 
-    /* Estilo da imagem na seção Bem Vindo - ATUALIZADO */
+    /* Estilo da imagem na seção Bem Vindo */
     .bemvindo-imagem {
       max-width: 750px;
       width: 100%;
@@ -393,10 +393,6 @@
     }
 
     #planos .plano-card h3 {
-      color: var(--azul-escuro);
-    }
-
-    #planos .plano-sub {
       color: var(--azul-escuro);
     }
 
@@ -461,74 +457,6 @@
       font-size: 1rem;
     }
     
-    /* Responsividade para tablets */
-    @media (max-width: 768px) {
-      .suporte-imagem {
-        max-width: 300px;
-      }
-      
-      .suporte-texto {
-        font-size: 0.95rem;
-        padding: 0 15px;
-      }
-      
-      #sobre h1 {
-        font-size: 2.5rem;
-      }
-      
-      #sobre p {
-        font-size: 1rem;
-        padding: 0 15px;
-      }
-
-      .bemvindo-imagem {
-        max-width: 620px;
-      }
-    }
-    
-    /* Responsividade para celulares */
-    @media (max-width: 480px) {
-      .suporte-imagem {
-        max-width: 250px;
-      }
-      
-      .suporte-texto {
-        font-size: 0.9rem;
-        padding: 0 10px;
-      }
-      
-      #sobre h1 {
-        font-size: 2rem;
-      }
-      
-      #sobre p {
-        font-size: 0.9rem;
-      }
-
-      .bemvindo-imagem {
-        max-width: 500px;
-      }
-    }
-    
-    /* Responsividade para celulares muito pequenos */
-    @media (max-width: 380px) {
-      .suporte-imagem {
-        max-width: 200px;
-      }
-      
-      .suporte-texto {
-        font-size: 0.85rem;
-      }
-      
-      #sobre h1 {
-        font-size: 1.8rem;
-      }
-
-      .bemvindo-imagem {
-        max-width: 420px;
-      }
-    }
-
     /* ============================================ */
     /* CARDS PADRONIZADOS - MESMO TAMANHO E COMPORTAMENTO */
     /* ============================================ */
@@ -666,7 +594,7 @@
       padding: 20px;
     }
 
-    /* Ajuste específico para planos (header e lista) */
+    /* Ajuste específico para planos */
     .plano-card {
       padding: 0;
       justify-content: flex-start;
@@ -707,30 +635,6 @@
       flex-shrink: 0;
     }
 
-    .plano-cta {
-      padding: 0 30px 30px;
-    }
-
-    .btn-plano {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      background: linear-gradient(135deg, var(--azul-bright), var(--azul-neon));
-      color: white;
-      text-decoration: none;
-      padding: 14px 20px;
-      border-radius: 50px;
-      font-weight: 600;
-      transition: all 0.3s ease;
-      box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
-    }
-
-    .btn-plano:hover {
-      transform: scale(1.03);
-      box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4);
-    }
-
     .plano-obs {
       font-size: 0.7rem;
       color: #9ca3af;
@@ -740,7 +644,7 @@
     }
 
     /* ============================================ */
-    /* CARROSSEL PARA DISPOSITIVOS MÓVEIS           */
+    /* CARROSSEL PARA DISPOSITIVOS MÓVEIS - CORRIGIDO */
     /* ============================================ */
     
     @media (max-width: 768px) {
@@ -750,13 +654,13 @@
         scroll-snap-type: x mandatory;
         -webkit-overflow-scrolling: touch;
         scroll-behavior: smooth;
-        padding: 20px 0;
+        padding: 10px 0;
         margin: 0 -20px;
         position: relative;
       }
       
       .planos-carousel-container::-webkit-scrollbar {
-        height: 8px;
+        height: 6px;
       }
       
       .planos-carousel-container::-webkit-scrollbar-track {
@@ -772,31 +676,79 @@
       .planos-grid {
         display: flex;
         flex-direction: row;
-        gap: 20px;
+        gap: 15px;
         padding: 10px 20px;
         width: max-content;
         min-width: 100%;
       }
       
+      /* Card menor para mobile - SEM BOTÃO WHATSAPP */
       .plano-card {
         flex: 0 0 85%;
         scroll-snap-align: center;
         margin: 0 auto;
-        max-width: 320px;
+        max-width: 280px;
+        padding: 0;
+        min-height: auto;
+      }
+      
+      /* Ajustes do header do card para mobile */
+      .plano-header {
+        padding: 20px 15px 15px;
+      }
+      
+      .plano-header .plano-icon {
+        font-size: 36px;
+        margin-bottom: 10px;
+      }
+      
+      .plano-header h3 {
+        font-size: 1.2rem;
+        margin-bottom: 5px;
+      }
+      
+      .plano-header p {
+        font-size: 0.75rem;
+      }
+      
+      /* Lista de benefícios mais compacta */
+      .plano-beneficios {
+        padding: 15px;
+      }
+      
+      .plano-beneficios li {
+        padding: 6px 0;
+        font-size: 0.75rem;
+        gap: 8px;
+      }
+      
+      .plano-beneficios i {
+        font-size: 0.85rem;
+      }
+      
+      /* OBS menor */
+      .plano-obs {
+        padding: 0 15px 15px;
+        font-size: 0.65rem;
+      }
+      
+      /* REMOVIDO o botão WhatsApp em mobile */
+      .plano-cta {
+        display: none;
       }
       
       /* Indicadores do carrossel */
       .carousel-dots {
         display: flex;
         justify-content: center;
-        gap: 12px;
-        margin-top: 20px;
+        gap: 10px;
+        margin-top: 15px;
         padding: 10px;
       }
       
       .carousel-dot {
-        width: 10px;
-        height: 10px;
+        width: 8px;
+        height: 8px;
         border-radius: 50%;
         background: rgba(255, 255, 255, 0.4);
         cursor: pointer;
@@ -805,15 +757,39 @@
       
       .carousel-dot.active {
         background: linear-gradient(135deg, var(--azul-bright), var(--azul-neon));
-        width: 30px;
-        border-radius: 5px;
+        width: 25px;
+        border-radius: 4px;
       }
     }
     
-    /* Desktop - esconder indicadores */
+    /* Desktop - esconder indicadores e manter botão */
     @media (min-width: 769px) {
       .carousel-dots {
         display: none;
+      }
+      
+      .plano-cta {
+        padding: 0 30px 30px;
+      }
+      
+      .btn-plano {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        background: linear-gradient(135deg, var(--azul-bright), var(--azul-neon));
+        color: white;
+        text-decoration: none;
+        padding: 14px 20px;
+        border-radius: 50px;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+      }
+      
+      .btn-plano:hover {
+        transform: scale(1.03);
+        box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4);
       }
     }
 
@@ -967,21 +943,21 @@
       .section-title {
         font-size: 2rem;
         white-space: normal;
+        text-align: center;
+        left: 0;
+        transform: none;
+        display: block;
       }
       
       .benefits h2 {
         font-size: 2rem;
         white-space: normal;
+        text-align: center;
+        left: 0;
+        transform: none;
+        display: block;
       }
       
-      .plano-card h3 {
-        font-size: 1.5rem;
-      }
-      
-      h2 {
-        font-size: 1.8rem;
-      }
-
       #servicos {
         padding-top: 30px;
       }
@@ -989,6 +965,28 @@
       #servicos h2 {
         font-size: 2rem;
         margin-bottom: 40px;
+      }
+
+      .suporte-imagem {
+        max-width: 300px;
+      }
+      
+      .suporte-texto {
+        font-size: 0.95rem;
+        padding: 0 15px;
+      }
+      
+      #sobre h1 {
+        font-size: 2.5rem;
+      }
+      
+      #sobre p {
+        font-size: 1rem;
+        padding: 0 15px;
+      }
+
+      .bemvindo-imagem {
+        max-width: 620px;
       }
     }
 
@@ -1032,26 +1030,6 @@
         font-size: 1.8rem;
       }
       
-      .plano-beneficios li {
-        font-size: 0.85rem;
-      }
-      
-      .plano-header {
-        padding: 25px 20px;
-      }
-      
-      .plano-beneficios {
-        padding: 20px;
-      }
-      
-      .plano-cta {
-        padding: 0 20px 25px;
-      }
-      
-      h2 {
-        font-size: 1.5rem;
-      }
-
       #servicos {
         padding-top: 25px;
       }
@@ -1060,10 +1038,31 @@
         font-size: 1.8rem;
         margin-bottom: 30px;
       }
+
+      .suporte-imagem {
+        max-width: 250px;
+      }
+      
+      .suporte-texto {
+        font-size: 0.9rem;
+        padding: 0 10px;
+      }
+      
+      #sobre h1 {
+        font-size: 2rem;
+      }
+      
+      #sobre p {
+        font-size: 0.9rem;
+      }
+
+      .bemvindo-imagem {
+        max-width: 500px;
+      }
     }
 
     /* Celulares muito pequenos */
-    @media (max-width: 500px) {
+    @media (max-width: 380px) {
       .presence-card,
       .benefit-card {
         min-height: 240px;
@@ -1081,6 +1080,22 @@
 
       #servicos {
         padding-top: 20px;
+      }
+
+      .suporte-imagem {
+        max-width: 200px;
+      }
+      
+      .suporte-texto {
+        font-size: 0.85rem;
+      }
+      
+      #sobre h1 {
+        font-size: 1.8rem;
+      }
+
+      .bemvindo-imagem {
+        max-width: 420px;
       }
     }
 
@@ -1100,7 +1115,7 @@
   <header class="header">
     <div class="container">
       <div class="nav-container">
-        <a href="/" class="logo">
+        <a href="#" class="logo">
           <img src="imagens/logo_002.png" alt="GR2 Soluções Digitais - Página inicial" class="logo-img">
         </a>
         
@@ -1164,7 +1179,7 @@
       </div>
     </section>
 
-    <!-- SEÇÃO 3: PLANOS COM CARROSSEL -->
+    <!-- SEÇÃO 3: PLANOS COM CARROSSEL - CORRIGIDA -->
     <section id="planos" class="fade-in-section">
       <div class="container">
         <h2 class="section-title">Nossos Planos</h2>
@@ -1172,12 +1187,12 @@
         <div class="planos-carousel-container" id="planosCarousel">
           <div class="planos-grid" id="planosGrid">
             
-            <!-- Plano 1: Básico (Original) -->
+            <!-- Plano 1: Básico -->
             <div class="plano-card">
               <div class="plano-header">
                 <div class="plano-icon"><i class="bi bi-window-stack"></i></div>
                 <h3>Plano Básico</h3>
-                <p class="plano-sub">Ideal para sua presença digital</p>
+                <p>Ideal para sua presença digital</p>
               </div>
               
               <ul class="plano-beneficios">
@@ -1197,12 +1212,12 @@
               </div>
             </div>
             
-            <!-- Plano 2: Sistema Personalizado (Original) -->
+            <!-- Plano 2: Sistema Personalizado -->
             <div class="plano-card">
               <div class="plano-header">
                 <div class="plano-icon"><i class="bi bi-code-square"></i></div>
                 <h3>Sistema Personalizado</h3>
-                <p class="plano-sub">Sob medida para o seu negócio</p>
+                <p>Sob medida para o seu negócio</p>
               </div>
               
               <ul class="plano-beneficios">
@@ -1224,12 +1239,12 @@
               <p class="plano-obs">*Projeto sob consulta. Entre em contato para detalhes.</p>
             </div>
             
-            <!-- Plano 3: Plano Profissional (NOVO CARD) -->
+            <!-- Plano 3: Plano Profissional -->
             <div class="plano-card">
               <div class="plano-header">
                 <div class="plano-icon"><i class="bi bi-rocket-takeoff"></i></div>
                 <h3>Plano Profissional</h3>
-                <p class="plano-sub">Performance e resultados avançados</p>
+                <p>Performance e resultados avançados</p>
               </div>
               
               <ul class="plano-beneficios">
@@ -1321,20 +1336,20 @@
 
   <footer class="footer">
     <div class="social-icons">
-      <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+      <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
         <i class="bi bi-instagram"></i>
       </a>
-      <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+      <a href="#" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
         <i class="bi bi-linkedin"></i>
       </a>
-      <a href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+      <a href="#" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
         <i class="bi bi-youtube"></i>
       </a>
-      <a href="https://www.tiktok.com/" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
+      <a href="#" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
         <i class="bi bi-tiktok"></i>
       </a>
     </div>
-    <p class="direitos">Desenvolvido por <a href="https://www.gr2sites.com.br" target="_blank" rel="noopener noreferrer"><strong>GR2 Sites e Sistemas</strong></a> - Todos os direitos reservados</p>
+    <p class="direitos">Desenvolvido por <a href="#" target="_blank" rel="noopener noreferrer"><strong>GR2 Sites e Sistemas</strong></a> - Todos os direitos reservados</p>
   </footer>
 
   <a href="https://wa.me/5516992976187?text=Olá!%20Gostaria%20de%20mais%20informações%20sobre%20os%20serviços." 
@@ -1400,7 +1415,7 @@
     setTimeout(checkVisibility, 100);
     
     // ============================================
-    // CARROSSEL DE PLANOS PARA DISPOSITIVOS MÓVEIS
+    // CARROSSEL DE PLANOS PARA DISPOSITIVOS MÓVEIS - CORRIGIDO
     // ============================================
     
     const carouselContainer = document.getElementById('planosCarousel');
@@ -1435,7 +1450,7 @@
       
       const scrollPosition = carouselContainer.scrollLeft;
       const cardWidth = planosCards[0]?.offsetWidth || 0;
-      const gap = 20; // gap entre os cards em px
+      const gap = 15; // gap entre os cards em px (igual ao CSS)
       const cardTotalWidth = cardWidth + gap;
       
       if (cardTotalWidth > 0) {
@@ -1459,7 +1474,7 @@
       if (!isMobile || !carouselContainer) return;
       
       const cardWidth = planosCards[0]?.offsetWidth || 0;
-      const gap = 20;
+      const gap = 15;
       const cardTotalWidth = cardWidth + gap;
       
       if (cardTotalWidth > 0 && planosCards.length > 0) {
@@ -1477,7 +1492,7 @@
       if (!isMobile || !carouselContainer) return;
       
       const cardWidth = planosCards[0]?.offsetWidth || 0;
-      const gap = 20;
+      const gap = 15;
       const cardTotalWidth = cardWidth + gap;
       
       if (cardTotalWidth > 0) {
@@ -1543,7 +1558,7 @@
       initCarousel();
     });
     
-    // Reiniciar carrossel após o fade-in (para garantir que os cards estejam visíveis)
+    // Reiniciar carrossel após o fade-in
     setTimeout(() => {
       if (window.innerWidth <= 768) {
         updateActiveDot();

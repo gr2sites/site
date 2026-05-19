@@ -584,18 +584,21 @@
       margin: 0 auto;
     }
 
-    /* Grid de planos - versão desktop */
+    /* Grid de planos - versão desktop - CENTRALIZADO */
     .planos-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 40px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
       max-width: 1200px;
       margin: 0 auto;
       padding: 20px;
     }
 
-    /* Ajuste específico para planos */
+    /* Card de plano individual - LARGURA FIXA E CENTRALIZADO */
     .plano-card {
+      max-width: 380px;
+      width: 100%;
+      margin: 0 auto;
       padding: 0;
       justify-content: flex-start;
       min-height: auto;
@@ -606,6 +609,36 @@
       padding: 35px 30px 25px;
       text-align: center;
       border-bottom: 1px solid #e5e7eb;
+    }
+
+    .plano-preco {
+      text-align: center;
+      padding: 20px 30px 10px;
+      border-bottom: 1px solid #e5e7eb;
+    }
+
+    .preco-valor {
+      font-size: 2.2rem;
+      font-weight: 800;
+      color: var(--azul-bright);
+      margin-bottom: 5px;
+    }
+
+    .preco-valor small {
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: #6b7280;
+    }
+
+    .manutencao {
+      font-size: 0.85rem;
+      color: #6b7280;
+      margin-top: 5px;
+    }
+
+    .manutencao strong {
+      color: var(--azul-bright);
+      font-size: 1rem;
     }
 
     .plano-beneficios {
@@ -676,6 +709,7 @@
       .planos-grid {
         display: flex;
         flex-direction: row;
+        justify-content: center;
         gap: 15px;
         padding: 10px 20px;
         width: max-content;
@@ -708,6 +742,19 @@
       }
       
       .plano-header p {
+        font-size: 0.75rem;
+      }
+
+      /* Ajustes do preço para mobile */
+      .plano-preco {
+        padding: 15px 20px 10px;
+      }
+
+      .preco-valor {
+        font-size: 1.6rem;
+      }
+
+      .manutencao {
         font-size: 0.75rem;
       }
       
@@ -1191,8 +1238,14 @@
             <div class="plano-card">
               <div class="plano-header">
                 <div class="plano-icon"><i class="bi bi-window-stack"></i></div>
-                <h3>Plano Básico</h3>
+                <h3>Plano Profissional</h3>
                 <p>Ideal para sua presença digital</p>
+              </div>
+              
+              <!-- PREÇO ADICIONADO -->
+              <div class="plano-preco">
+                <div class="preco-valor">R$ 689,00 <small>à vista</small></div>
+                <div class="manutencao">Manutenção mensal: <strong>R$ 89,90</strong></div>
               </div>
               
               <ul class="plano-beneficios">
@@ -1203,67 +1256,11 @@
                 <li><i class="bi bi-check-circle-fill"></i> Botão Whatsapp</li>
                 <li><i class="bi bi-check-circle-fill"></i> Conexão com redes sociais</li>              
                 <li><i class="bi bi-check-circle-fill"></i> Segurança com SSL</li>
+                <li><i class="bi bi-check-circle-fill"></i> Hospedagem inclusa</li>
+                <li><i class="bi bi-check-circle-fill"></i> Galeria ou catálogo</li>
               </ul>
               
-              <div class="plano-cta">
-                <a href="https://wa.me/5516992976187?text=Olá!%20Gostaria%20de%20mais%20informações%20sobre%20o%20Plano%20Básico." class="btn-plano" target="_blank">
-                  <i class="bi bi-whatsapp"></i> Quero este plano
-                </a>
-              </div>
-            </div>
-            
-            <!-- Plano 2: Sistema Personalizado -->
-            <div class="plano-card">
-              <div class="plano-header">
-                <div class="plano-icon"><i class="bi bi-code-square"></i></div>
-                <h3>Sistema Personalizado</h3>
-                <p>Sob medida para o seu negócio</p>
-              </div>
               
-              <ul class="plano-beneficios">
-                <li><i class="bi bi-check-circle-fill"></i> Desenvolvimento completo</li>
-                <li><i class="bi bi-check-circle-fill"></i> Cadastro de Clientes</li>
-                <li><i class="bi bi-check-circle-fill"></i> Controle de estoque</li>
-                <li><i class="bi bi-check-circle-fill"></i> Agendamento de horários</li>
-                <li><i class="bi bi-check-circle-fill"></i> Emissão de pedidos</li>
-                <li><i class="bi bi-check-circle-fill"></i> Controle de usuários e permissões</li>
-                <li><i class="bi bi-check-circle-fill"></i> Hospedagem dedicada</li>
-                <li><i class="bi bi-check-circle-fill"></i> Suporte humanizado</li>
-              </ul>
-              
-              <div class="plano-cta">
-                <a href="https://wa.me/5516992976187?text=Olá!%20Gostaria%20de%20mais%20informações%20sobre%20o%20Sistema%20Personalizado." class="btn-plano" target="_blank">
-                  <i class="bi bi-whatsapp"></i> Solicitar orçamento
-                </a>
-              </div>
-              <p class="plano-obs">*Projeto sob consulta. Entre em contato para detalhes.</p>
-            </div>
-            
-            <!-- Plano 3: Plano Profissional -->
-            <div class="plano-card">
-              <div class="plano-header">
-                <div class="plano-icon"><i class="bi bi-rocket-takeoff"></i></div>
-                <h3>Plano Profissional</h3>
-                <p>Performance e resultados avançados</p>
-              </div>
-              
-              <ul class="plano-beneficios">
-                <li><i class="bi bi-check-circle-fill"></i> Tudo do Plano Básico</li>
-                <li><i class="bi bi-check-circle-fill"></i> E-commerce completo</li>
-                <li><i class="bi bi-check-circle-fill"></i> Painel administrativo</li>
-                <li><i class="bi bi-check-circle-fill"></i> Otimização de velocidade avançada</li>
-                <li><i class="bi bi-check-circle-fill"></i> Backup automático semanal</li>
-                <li><i class="bi bi-check-circle-fill"></i> Relatórios de desempenho mensais</li>
-                <li><i class="bi bi-check-circle-fill"></i> Suporte prioritário 24/7</li>
-                <li><i class="bi bi-check-circle-fill"></i> Manutenção mensal inclusa</li>
-              </ul>
-              
-              <div class="plano-cta">
-                <a href="https://wa.me/5516992976187?text=Olá!%20Gostaria%20de%20mais%20informações%20sobre%20o%20Plano%20Profissional." class="btn-plano" target="_blank">
-                  <i class="bi bi-whatsapp"></i> Falar com especialista
-                </a>
-              </div>
-              <p class="plano-obs">*Ideal para empresas em crescimento.</p>
             </div>
             
           </div>
@@ -1419,7 +1416,7 @@
     // ============================================
     
     const carouselContainer = document.getElementById('planosCarousel');
-    const planosGrid = document.getElementById('planosGrid');
+    const planosGridEl = document.getElementById('planosGrid');
     const dotsContainer = document.getElementById('carouselDots');
     const planosCards = document.querySelectorAll('.plano-card');
     

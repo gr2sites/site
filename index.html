@@ -498,10 +498,10 @@
       min-height: 160px;
     }
 
-    /* Altura normal para outros cards */
+    /* ALTURA REDUZIDA PARA CARDS DE BENEFÍCIOS - METADE DO TAMANHO */
     .benefit-card {
-      padding: var(--card-padding);
-      min-height: 320px;
+      padding: 20px 20px;
+      min-height: 160px;
     }
 
     .plano-card {
@@ -546,8 +546,6 @@
     .presence-icon,
     .benefit-icon,
     .plano-icon {
-      font-size: var(--icon-size);
-      margin-bottom: 15px;
       display: inline-block;
       transition: all 0.3s ease;
       background: linear-gradient(135deg, var(--azul-bright), var(--azul-neon));
@@ -562,6 +560,12 @@
       margin-bottom: 10px;
     }
 
+    /* Ícones menores para cards de benefícios */
+    .benefit-icon {
+      font-size: 40px;
+      margin-bottom: 10px;
+    }
+
     .presence-card:hover .presence-icon,
     .benefit-card:hover .benefit-icon,
     .plano-card:hover .plano-icon {
@@ -572,7 +576,6 @@
     .presence-card h3,
     .benefit-card h3,
     .plano-card h3 {
-      font-size: var(--title-size);
       font-weight: 600;
       color: var(--azul-escuro);
       margin-bottom: 8px;
@@ -582,6 +585,12 @@
     /* Títulos menores para cards de presença online */
     .presence-card h3 {
       font-size: 1.1rem;
+      margin-bottom: 5px;
+    }
+
+    /* Títulos menores para cards de benefícios */
+    .benefit-card h3 {
+      font-size: 1rem;
       margin-bottom: 5px;
     }
 
@@ -595,7 +604,6 @@
     .presence-card p,
     .benefit-card p,
     .plano-card p {
-      font-size: var(--text-size);
       color: #4b5563;
       line-height: 1.4;
       margin-top: 0;
@@ -604,6 +612,12 @@
     /* Textos menores para cards de presença online */
     .presence-card p {
       font-size: 0.85rem;
+      line-height: 1.3;
+    }
+
+    /* Textos menores para cards de benefícios */
+    .benefit-card p {
+      font-size: 0.8rem;
       line-height: 1.3;
     }
 
@@ -861,6 +875,26 @@
       .presence-card p {
         font-size: 0.75rem;
       }
+
+      /* Ajuste para cards de benefícios em mobile */
+      .benefit-card {
+        padding: 15px 15px;
+        min-height: 140px;
+      }
+
+      .benefit-icon {
+        font-size: 32px;
+        margin-bottom: 8px;
+      }
+
+      .benefit-card h3 {
+        font-size: 0.85rem;
+        margin-bottom: 4px;
+      }
+
+      .benefit-card p {
+        font-size: 0.7rem;
+      }
     }
     
     /* Desktop - esconder indicadores e manter botão */
@@ -1020,23 +1054,6 @@
         padding: 15px;
       }
       
-      .benefit-card {
-        padding: var(--card-padding-mobile);
-        min-height: 280px;
-      }
-      
-      .benefit-icon {
-        font-size: var(--icon-size-mobile);
-      }
-      
-      .benefit-card h3 {
-        font-size: var(--title-size-mobile);
-      }
-      
-      .benefit-card p {
-        font-size: var(--text-size-mobile);
-      }
-      
       .section-title {
         font-size: 2rem;
         white-space: normal;
@@ -1096,25 +1113,6 @@
         padding: 10px;
       }
       
-      .benefit-card {
-        padding: 20px 15px;
-        min-height: 260px;
-      }
-      
-      .benefit-icon {
-        font-size: 40px;
-        margin-bottom: 15px;
-      }
-      
-      .benefit-card h3 {
-        font-size: 1rem;
-        margin-bottom: 8px;
-      }
-      
-      .benefit-card p {
-        font-size: 0.8rem;
-      }
-
       .presence-card {
         padding: 12px 12px;
         min-height: 120px;
@@ -1132,6 +1130,25 @@
 
       .presence-card p {
         font-size: 0.7rem;
+      }
+
+      .benefit-card {
+        padding: 12px 12px;
+        min-height: 120px;
+      }
+
+      .benefit-icon {
+        font-size: 28px;
+        margin-bottom: 6px;
+      }
+
+      .benefit-card h3 {
+        font-size: 0.8rem;
+        margin-bottom: 3px;
+      }
+
+      .benefit-card p {
+        font-size: 0.65rem;
       }
       
       .section-title {
@@ -1175,18 +1192,6 @@
 
     /* Celulares muito pequenos */
     @media (max-width: 380px) {
-      .benefit-card {
-        min-height: 240px;
-      }
-      
-      .benefit-icon {
-        font-size: 36px;
-      }
-      
-      .benefit-card h3 {
-        font-size: 0.95rem;
-      }
-
       .presence-card {
         padding: 10px 10px;
         min-height: 110px;
@@ -1203,6 +1208,24 @@
 
       .presence-card p {
         font-size: 0.65rem;
+      }
+
+      .benefit-card {
+        padding: 10px 10px;
+        min-height: 110px;
+      }
+
+      .benefit-icon {
+        font-size: 24px;
+        margin-bottom: 5px;
+      }
+
+      .benefit-card h3 {
+        font-size: 0.75rem;
+      }
+
+      .benefit-card p {
+        font-size: 0.6rem;
       }
 
       #servicos {

@@ -423,6 +423,257 @@
     }
 
     /* ============================================ */
+    /* SEÇÃO 6: CLIENTES SATISFEITOS - NOVA SEÇÃO  */
+    /* ============================================ */
+    .clientes {
+      background: linear-gradient(135deg, #0b3b5a 0%, #0f2b4d 50%, #0a192f 100%);
+      position: relative;
+    }
+
+    .clientes .section-title {
+      color: #ffffff;
+    }
+
+    .clientes .section-title::after {
+      background: linear-gradient(90deg, var(--azul-bright), var(--azul-neon), var(--azul-bright));
+    }
+
+    /* Grid de depoimentos */
+    .depoimentos-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    /* Card de depoimento */
+    .depoimento-card {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      border-radius: var(--card-border-radius);
+      padding: 30px 25px;
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+      position: relative;
+      overflow: hidden;
+      border: 1px solid rgba(59, 130, 246, 0.2);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .depoimento-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--azul-bright), var(--azul-neon));
+      transform: scaleX(0);
+      transition: transform 0.4s ease;
+      transform-origin: left;
+    }
+
+    .depoimento-card:hover::before {
+      transform: scaleX(1);
+    }
+
+    .depoimento-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 40px rgba(59, 130, 246, 0.2);
+      border-color: var(--azul-bright);
+    }
+
+    /* Aspas do depoimento */
+    .depoimento-aspas {
+      font-size: 50px;
+      background: linear-gradient(135deg, var(--azul-bright), var(--azul-neon));
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      margin-bottom: 15px;
+      line-height: 1;
+    }
+
+    /* Texto do depoimento */
+    .depoimento-texto {
+      color: #374151;
+      font-size: 0.95rem;
+      line-height: 1.6;
+      margin-bottom: 20px;
+      font-style: italic;
+      flex-grow: 1;
+    }
+
+    /* Estrelas de avaliação */
+    .depoimento-estrelas {
+      margin-bottom: 15px;
+      color: #fbbf24;
+      font-size: 1.1rem;
+      letter-spacing: 2px;
+    }
+
+    /* Informações do cliente */
+    .depoimento-cliente {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-top: auto;
+      padding-top: 15px;
+      border-top: 1px solid #e5e7eb;
+    }
+
+    .cliente-avatar {
+      width: 45px;
+      height: 45px;
+      background: linear-gradient(135deg, var(--azul-bright), var(--azul-neon));
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: bold;
+      font-size: 1.2rem;
+    }
+
+    .cliente-info {
+      flex: 1;
+    }
+
+    .cliente-nome {
+      font-weight: 700;
+      color: var(--azul-escuro);
+      font-size: 0.95rem;
+      margin-bottom: 2px;
+    }
+
+    .cliente-empresa {
+      font-size: 0.75rem;
+      color: #6b7280;
+    }
+
+    /* ============================================ */
+    /* CARROSSEL PARA DEPOIMENTOS EM MOBILE        */
+    /* ============================================ */
+    .depoimentos-carousel-container {
+      position: relative;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    @media (max-width: 768px) {
+      .depoimentos-carousel-container {
+        overflow-x: auto;
+        overflow-y: hidden;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        scroll-behavior: smooth;
+        padding: 10px 0;
+        margin: 0 -20px;
+      }
+
+      .depoimentos-carousel-container::-webkit-scrollbar {
+        height: 6px;
+      }
+
+      .depoimentos-carousel-container::-webkit-scrollbar-track {
+        background: rgba(255, 255, 255, 0.2);
+        border-radius: 10px;
+      }
+
+      .depoimentos-carousel-container::-webkit-scrollbar-thumb {
+        background: linear-gradient(135deg, var(--azul-bright), var(--azul-neon));
+        border-radius: 10px;
+      }
+
+      .depoimentos-grid {
+        display: flex;
+        flex-direction: row;
+        gap: 15px;
+        padding: 10px 20px;
+        width: max-content;
+        min-width: 100%;
+      }
+
+      .depoimento-card {
+        flex: 0 0 85%;
+        scroll-snap-align: center;
+        margin: 0 auto;
+        padding: 20px 18px;
+      }
+
+      .depoimento-aspas {
+        font-size: 35px;
+        margin-bottom: 10px;
+      }
+
+      .depoimento-texto {
+        font-size: 0.85rem;
+        line-height: 1.5;
+        margin-bottom: 15px;
+      }
+
+      .depoimento-estrelas {
+        font-size: 0.9rem;
+        margin-bottom: 12px;
+      }
+
+      .cliente-avatar {
+        width: 38px;
+        height: 38px;
+        font-size: 1rem;
+      }
+
+      .cliente-nome {
+        font-size: 0.85rem;
+      }
+
+      .cliente-empresa {
+        font-size: 0.7rem;
+      }
+
+      /* Dots do carrossel de depoimentos */
+      .depoimentos-carousel-dots {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        margin-top: 15px;
+        padding: 10px;
+      }
+
+      .depoimentos-dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.4);
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      .depoimentos-dot.active {
+        background: linear-gradient(135deg, var(--azul-bright), var(--azul-neon));
+        width: 25px;
+        border-radius: 4px;
+      }
+    }
+
+    /* Desktop - esconder indicadores */
+    @media (min-width: 769px) {
+      .depoimentos-carousel-dots {
+        display: none;
+      }
+    }
+
+    /* Tablets - ajuste para 2 colunas */
+    @media (max-width: 992px) and (min-width: 769px) {
+      .depoimentos-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    /* ============================================ */
     /* SEÇÃO SUPORTE - IMAGEM CENTRALIZADA E RESPONSIVA */
     /* ============================================ */
     
@@ -1279,6 +1530,7 @@
             <li><a href="#vantagens">Vantagens</a></li>
             <li><a href="#planos">Planos</a></li>
             <li><a href="#servicos">Serviços</a></li>
+            <li><a href="#clientes">Clientes</a></li>
           </ul>
         </nav>
       </div>
@@ -1432,6 +1684,90 @@
         </p>
       </div>
     </section>
+
+    <!-- SEÇÃO 6: CLIENTES SATISFEITOS - NOVA SEÇÃO -->
+    <section id="clientes" class="clientes fade-in-section">
+      <div class="container">
+        <h2 class="section-title">Clientes Satisfeitos</h2>
+        
+        <div class="depoimentos-carousel-container" id="depoimentosCarousel">
+          <div class="depoimentos-grid" id="depoimentosGrid">
+            
+            <!-- Depoimento 1 -->
+            <div class="depoimento-card">
+              <div class="depoimento-aspas"><i class="bi bi-quote"></i></div>
+              <div class="depoimento-texto">
+                "A GR2 transformou completamente nossa presença online. O site ficou moderno, rápido e trouxe muitos clientes novos. O suporte é excepcional!"
+              </div>
+              <div class="depoimento-estrelas">
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+              </div>
+              <div class="depoimento-cliente">
+                <div class="cliente-avatar">AM</div>
+                <div class="cliente-info">
+                  <div class="cliente-nome">Ana Maria Silva</div>
+                  <div class="cliente-empresa">Moda & Estilo</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Depoimento 2 -->
+            <div class="depoimento-card">
+              <div class="depoimento-aspas"><i class="bi bi-quote"></i></div>
+              <div class="depoimento-texto">
+                "Excelente custo-benefício! O time da GR2 entregou antes do prazo e com uma qualidade impressionante. Recomendo para qualquer negócio."
+              </div>
+              <div class="depoimento-estrelas">
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+              </div>
+              <div class="depoimento-cliente">
+                <div class="cliente-avatar">CR</div>
+                <div class="cliente-info">
+                  <div class="cliente-nome">Carlos Roberto</div>
+                  <div class="cliente-empresa">Construtora Alpha</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Depoimento 3 -->
+            <div class="depoimento-card">
+              <div class="depoimento-aspas"><i class="bi bi-quote"></i></div>
+              <div class="depoimento-texto">
+                "Desde que o site ficou pronto, nossas vendas aumentaram 40% em apenas 3 meses. O suporte pós-venda é diferenciado e atencioso."
+              </div>
+              <div class="depoimento-estrelas">
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+              </div>
+              <div class="depoimento-cliente">
+                <div class="cliente-avatar">FS</div>
+                <div class="cliente-info">
+                  <div class="cliente-nome">Fernanda Souza</div>
+                  <div class="cliente-empresa">Beleza Natural</div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Indicadores do carrossel de depoimentos (aparecem apenas em mobile) -->
+        <div class="depoimentos-carousel-dots" id="depoimentosDots"></div>
+
+      </div>
+    </section>
+
   </main>
 
   <footer class="footer">
@@ -1662,6 +1998,143 @@
     setTimeout(() => {
       if (window.innerWidth <= 768) {
         updateActiveDot();
+      }
+    }, 500);
+
+    // ============================================
+    // CARROSSEL DE DEPOIMENTOS PARA DISPOSITIVOS MÓVEIS
+    // ============================================
+    
+    const depoimentosCarousel = document.getElementById('depoimentosCarousel');
+    const depoimentosGrid = document.getElementById('depoimentosGrid');
+    const depoimentosDotsContainer = document.getElementById('depoimentosDots');
+    const depoimentosCards = document.querySelectorAll('.depoimento-card');
+    
+    let depoimentosAutoScrollInterval;
+    let depoimentosCurrentIndex = 0;
+    let isDepoimentosMobile = window.innerWidth <= 768;
+    
+    // Função para criar os dots dos depoimentos
+    function createDepoimentosDots() {
+      if (!depoimentosDotsContainer) return;
+      
+      depoimentosDotsContainer.innerHTML = '';
+      depoimentosCards.forEach((_, index) => {
+        const dot = document.createElement('div');
+        dot.classList.add('depoimentos-dot');
+        if (index === 0) dot.classList.add('active');
+        dot.addEventListener('click', () => {
+          scrollToDepoimentoCard(index);
+          resetDepoimentosAutoScroll();
+        });
+        depoimentosDotsContainer.appendChild(dot);
+      });
+    }
+    
+    // Função para atualizar o dot ativo dos depoimentos
+    function updateDepoimentosActiveDot() {
+      if (!isDepoimentosMobile || !depoimentosCarousel) return;
+      
+      const scrollPosition = depoimentosCarousel.scrollLeft;
+      const cardWidth = depoimentosCards[0]?.offsetWidth || 0;
+      const gap = 15;
+      const cardTotalWidth = cardWidth + gap;
+      
+      if (cardTotalWidth > 0) {
+        depoimentosCurrentIndex = Math.round(scrollPosition / cardTotalWidth);
+        depoimentosCurrentIndex = Math.min(depoimentosCurrentIndex, depoimentosCards.length - 1);
+        depoimentosCurrentIndex = Math.max(depoimentosCurrentIndex, 0);
+        
+        const dots = document.querySelectorAll('.depoimentos-dot');
+        dots.forEach((dot, idx) => {
+          if (idx === depoimentosCurrentIndex) {
+            dot.classList.add('active');
+          } else {
+            dot.classList.remove('active');
+          }
+        });
+      }
+    }
+    
+    // Função para scroll automático dos depoimentos
+    function autoScrollDepoimentos() {
+      if (!isDepoimentosMobile || !depoimentosCarousel) return;
+      
+      const cardWidth = depoimentosCards[0]?.offsetWidth || 0;
+      const gap = 15;
+      const cardTotalWidth = cardWidth + gap;
+      
+      if (cardTotalWidth > 0 && depoimentosCards.length > 0) {
+        depoimentosCurrentIndex = (depoimentosCurrentIndex + 1) % depoimentosCards.length;
+        const scrollTo = depoimentosCurrentIndex * cardTotalWidth;
+        depoimentosCarousel.scrollTo({
+          left: scrollTo,
+          behavior: 'smooth'
+        });
+      }
+    }
+    
+    // Função para scroll manual até um card específico dos depoimentos
+    function scrollToDepoimentoCard(index) {
+      if (!isDepoimentosMobile || !depoimentosCarousel) return;
+      
+      const cardWidth = depoimentosCards[0]?.offsetWidth || 0;
+      const gap = 15;
+      const cardTotalWidth = cardWidth + gap;
+      
+      if (cardTotalWidth > 0) {
+        depoimentosCurrentIndex = index;
+        const scrollTo = depoimentosCurrentIndex * cardTotalWidth;
+        depoimentosCarousel.scrollTo({
+          left: scrollTo,
+          behavior: 'smooth'
+        });
+      }
+    }
+    
+    // Função para resetar o auto-scroll dos depoimentos
+    function resetDepoimentosAutoScroll() {
+      if (depoimentosAutoScrollInterval) {
+        clearInterval(depoimentosAutoScrollInterval);
+        depoimentosAutoScrollInterval = setInterval(autoScrollDepoimentos, 6000);
+      }
+    }
+    
+    // Função para iniciar o carrossel de depoimentos
+    function initDepoimentosCarousel() {
+      isDepoimentosMobile = window.innerWidth <= 768;
+      
+      if (isDepoimentosMobile && depoimentosCards.length > 0) {
+        createDepoimentosDots();
+        
+        if (depoimentosCarousel) {
+          depoimentosCarousel.addEventListener('scroll', updateDepoimentosActiveDot);
+          depoimentosCarousel.addEventListener('touchend', resetDepoimentosAutoScroll);
+          depoimentosCarousel.addEventListener('scrollend', resetDepoimentosAutoScroll);
+        }
+        
+        if (depoimentosAutoScrollInterval) clearInterval(depoimentosAutoScrollInterval);
+        depoimentosAutoScrollInterval = setInterval(autoScrollDepoimentos, 6000);
+        
+        setTimeout(() => updateDepoimentosActiveDot(), 100);
+      } else {
+        if (depoimentosAutoScrollInterval) {
+          clearInterval(depoimentosAutoScrollInterval);
+        }
+        if (depoimentosDotsContainer) {
+          depoimentosDotsContainer.innerHTML = '';
+        }
+      }
+    }
+    
+    // Iniciar carrossel de depoimentos
+    document.addEventListener('DOMContentLoaded', () => {
+      initDepoimentosCarousel();
+    });
+    
+    setTimeout(() => {
+      if (window.innerWidth <= 768) {
+        updateDepoimentosActiveDot();
       }
     }, 500);
   </script>

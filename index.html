@@ -424,11 +424,12 @@
     }
 
     /* ============================================ */
-    /* SEÇÃO 6: CLIENTES SATISFEITOS - NOVA SEÇÃO  */
+    /* SEÇÃO 6: CLIENTES SATISFEITOS - CORRIGIDA   */
     /* ============================================ */
     .clientes {
       background: linear-gradient(135deg, #0b3b5a 0%, #0f2b4d 50%, #0a192f 100%);
       position: relative;
+      overflow-x: hidden;
     }
 
     .clientes .section-title {
@@ -439,7 +440,7 @@
       background: linear-gradient(90deg, var(--azul-bright), var(--azul-neon), var(--azul-bright));
     }
 
-    /* Grid de depoimentos */
+    /* Grid de depoimentos - Desktop (3 colunas) */
     .depoimentos-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -576,93 +577,105 @@
     }
 
     /* ============================================ */
-    /* CARROSSEL PARA DEPOIMENTOS EM MOBILE        */
+    /* CARROSSEL PARA DEPOIMENTOS EM MOBILE - 1 POR VEZ */
     /* ============================================ */
-    .depoimentos-carousel-container {
-      position: relative;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
     @media (max-width: 768px) {
+      /* Remove o padding do container da seção clientes em mobile */
+      #clientes .container {
+        padding: 0;
+        overflow-x: hidden;
+        width: 100%;
+      }
+      
+      /* Container principal do carrossel */
       .depoimentos-carousel-container {
         overflow-x: auto;
-        overflow-y: hidden;
+        overflow-y: visible;
         scroll-snap-type: x mandatory;
         -webkit-overflow-scrolling: touch;
         scroll-behavior: smooth;
-        padding: 10px 0;
-        margin: 0 -20px;
+        padding: 10px 0 20px 0;
+        margin: 0;
+        width: 100%;
+        cursor: grab;
       }
-
+      
+      .depoimentos-carousel-container:active {
+        cursor: grabbing;
+      }
+      
       .depoimentos-carousel-container::-webkit-scrollbar {
         height: 6px;
       }
-
+      
       .depoimentos-carousel-container::-webkit-scrollbar-track {
         background: rgba(255, 255, 255, 0.2);
         border-radius: 10px;
       }
-
+      
       .depoimentos-carousel-container::-webkit-scrollbar-thumb {
         background: linear-gradient(135deg, var(--azul-bright), var(--azul-neon));
         border-radius: 10px;
       }
-
+      
+      /* Grid em flex para mobile - 1 card por vez */
       .depoimentos-grid {
         display: flex;
         flex-direction: row;
-        gap: 15px;
-        padding: 10px 20px;
-        width: max-content;
-        min-width: 100%;
+        flex-wrap: nowrap;
+        gap: 0;
+        padding: 10px 0;
+        margin: 0;
+        width: 100%;
       }
-
+      
+      /* Card individual no mobile - ocupa 100% da largura da tela */
       .depoimento-card {
-        flex: 0 0 85%;
-        scroll-snap-align: center;
-        margin: 0 auto;
-        padding: 20px 18px;
+        flex: 0 0 100%;
+        scroll-snap-align: start;
+        margin: 0;
+        padding: 25px 20px;
+        border-radius: 0;
       }
-
+      
       .depoimento-aspas {
         font-size: 35px;
         margin-bottom: 10px;
       }
-
+      
       .depoimento-texto {
-        font-size: 0.85rem;
+        font-size: 0.9rem;
         line-height: 1.5;
         margin-bottom: 15px;
       }
-
+      
       .depoimento-estrelas {
-        font-size: 0.9rem;
+        font-size: 1rem;
         margin-bottom: 12px;
       }
-
+      
       .cliente-logo {
-        width: 45px;
-        height: 45px;
+        width: 50px;
+        height: 50px;
       }
-
+      
       .cliente-nome {
-        font-size: 0.85rem;
+        font-size: 0.9rem;
       }
-
+      
       .cliente-empresa {
-        font-size: 0.7rem;
+        font-size: 0.75rem;
       }
-
+      
       /* Dots do carrossel de depoimentos */
       .depoimentos-carousel-dots {
         display: flex;
         justify-content: center;
-        gap: 10px;
-        margin-top: 15px;
+        gap: 12px;
+        margin-top: 20px;
         padding: 10px;
       }
-
+      
       .depoimentos-dot {
         width: 8px;
         height: 8px;
@@ -671,10 +684,10 @@
         cursor: pointer;
         transition: all 0.3s ease;
       }
-
+      
       .depoimentos-dot.active {
         background: linear-gradient(135deg, var(--azul-bright), var(--azul-neon));
-        width: 25px;
+        width: 28px;
         border-radius: 4px;
       }
     }
@@ -996,7 +1009,7 @@
     }
 
     /* ============================================ */
-    /* CARROSSEL PARA DISPOSITIVOS MÓVEIS - CORRIGIDO */
+    /* CARROSSEL PARA DISPOSITIVOS MÓVEIS - PLANOS */
     /* ============================================ */
     
     @media (max-width: 768px) {
@@ -1035,7 +1048,6 @@
         min-width: 100%;
       }
       
-      /* Card menor para mobile - SEM BOTÃO WHATSAPP */
       .plano-card {
         flex: 0 0 85%;
         scroll-snap-align: center;
@@ -1045,7 +1057,6 @@
         min-height: auto;
       }
       
-      /* Ajustes do header do card para mobile */
       .plano-header {
         padding: 20px 15px 15px;
       }
@@ -1064,7 +1075,6 @@
         font-size: 0.75rem;
       }
 
-      /* Ajustes do preço para mobile */
       .plano-preco {
         padding: 15px 20px 10px;
       }
@@ -1077,7 +1087,6 @@
         font-size: 0.75rem;
       }
       
-      /* Lista de benefícios mais compacta */
       .plano-beneficios {
         padding: 15px;
       }
@@ -1092,18 +1101,15 @@
         font-size: 0.85rem;
       }
       
-      /* OBS menor */
       .plano-obs {
         padding: 0 15px 15px;
         font-size: 0.65rem;
       }
       
-      /* REMOVIDO o botão WhatsApp em mobile */
       .plano-cta {
         display: none;
       }
       
-      /* Indicadores do carrossel */
       .carousel-dots {
         display: flex;
         justify-content: center;
@@ -1127,7 +1133,6 @@
         border-radius: 4px;
       }
 
-      /* Ajuste para cards de presença online em mobile */
       .presence-card {
         padding: 15px 15px;
         min-height: 140px;
@@ -1147,7 +1152,6 @@
         font-size: 0.75rem;
       }
 
-      /* Ajuste para cards de benefícios em mobile */
       .benefit-card {
         padding: 15px 15px;
         min-height: 140px;
@@ -1168,7 +1172,6 @@
       }
     }
     
-    /* Desktop - esconder indicadores e manter botão */
     @media (min-width: 769px) {
       .carousel-dots {
         display: none;
@@ -1316,7 +1319,6 @@
     /* RESPONSIVIDADE PADRONIZADA DOS CARDS        */
     /* ============================================ */
     
-    /* Tablets */
     @media (max-width: 768px) {
       .presence-grid,
       .benefits-grid {
@@ -1375,7 +1377,6 @@
       }
     }
 
-    /* Celulares */
     @media (max-width: 480px) {
       .presence-grid,
       .benefits-grid {
@@ -1461,7 +1462,6 @@
       }
     }
 
-    /* Celulares muito pequenos */
     @media (max-width: 380px) {
       .presence-card {
         padding: 10px 10px;
@@ -1520,7 +1520,6 @@
       }
     }
 
-    /* SESSÃO 5 - SUPORTE - ESTILOS FINAIS */
     #servicos h2 {
       font-size: 2.5rem;
       text-align: center;
@@ -1564,7 +1563,6 @@
         <h1>Bem Vindo</h1>
         <p>Na <strong>GR2</strong>, você conta com <strong>especialistas</strong> dedicados a fortalecer sua presença digital, desenvolver <strong>soluções estratégicas</strong> que resolvem suas principais demandas e entregar resultados que outras empresas não conseguem oferecer. Tudo isso para ajudar você a conquistar <strong>mais clientes</strong> e crescer de forma consistente.</p>
         
-        <!-- Container para centralizar a imagem -->
         <div class="bemvindo-imagem-container">
           <img src="imagens/imagem_001.png" alt="GR2 Soluções Digitais - Transformação digital" class="bemvindo-imagem">
         </div>
@@ -1597,11 +1595,10 @@
             <p>Converta visitantes em clientes com estratégias eficientes</p>
           </div>
         </div>
-       
       </div>
     </section>
 
-    <!-- SEÇÃO 3: PLANOS COM CARROSSEL - CORRIGIDA -->
+    <!-- SEÇÃO 3: PLANOS -->
     <section id="planos" class="fade-in-section">
       <div class="container">
         <h2 class="section-title">Nossos Planos</h2>
@@ -1609,7 +1606,6 @@
         <div class="planos-carousel-container" id="planosCarousel">
           <div class="planos-grid" id="planosGrid">
             
-            <!-- Plano 1: Básico -->
             <div class="plano-card">
               <div class="plano-header">
                 <div class="plano-icon"><i class="bi bi-window-stack"></i></div>
@@ -1617,7 +1613,6 @@
                 <p>Ideal para sua presença digital</p>
               </div>
               
-              <!-- PREÇO ADICIONADO -->
               <div class="plano-preco">
                 <div class="preco-valor">R$ 689,00 <small>à vista</small></div>
                 <div class="manutencao">Manutenção mensal: <strong>R$ 89,90</strong></div>
@@ -1634,14 +1629,11 @@
                 <li><i class="bi bi-check-circle-fill"></i> Hospedagem inclusa</li>
                 <li><i class="bi bi-check-circle-fill"></i> Galeria ou catálogo</li>
               </ul>
-              
-              
             </div>
             
           </div>
         </div>
         
-        <!-- Indicadores do carrossel (aparecem apenas em mobile) -->
         <div class="carousel-dots" id="carouselDots"></div>
         
       </div>
@@ -1691,12 +1683,10 @@
       <div class="container">
         <h2>Suporte humanizado</h2>
         
-        <!-- Container para centralizar a imagem -->
         <div class="suporte-imagem-container">
           <img src="imagens/Imagem_suporte_002.png" alt="Suporte humanizado GR2 - Atendimento personalizado" class="suporte-imagem">
         </div>
         
-        <!-- Parágrafo centralizado -->
         <p class="suporte-texto">
           Quando precisar, terá suporte de um especialista para tirar suas dúvidas, sobre impulsionamento, 
           tráfego pago, maneiras de aumentar suas visualizações nos mecanismos de buscas
@@ -1705,7 +1695,7 @@
       </div>
     </section>
 
-    <!-- SEÇÃO 6: CLIENTES SATISFEITOS - COM LOGOS DOS CLIENTES -->
+    <!-- SEÇÃO 6: CLIENTES SATISFEITOS - 1 CARD POR VEZ EM MOBILE -->
     <section id="clientes" class="clientes fade-in-section">
       <div class="container">
         <h2 class="section-title">Clientes Satisfeitos</h2>
@@ -1737,7 +1727,7 @@
               </div>
             </div>
 
-            <!-- Depoimento 2 - Construtora Alpha -->
+            <!-- Depoimento 2 - NB Serralheria -->
             <div class="depoimento-card">
               <div class="depoimento-aspas"><i class="bi bi-quote"></i></div>
               <div class="depoimento-texto">
@@ -1752,16 +1742,16 @@
               </div>
               <div class="depoimento-cliente">
                 <div class="cliente-logo">
-                  <img src="imagens/logo_construtora_alpha.png" alt="Logo Construtora Alpha" onerror="this.parentElement.innerHTML='<div class=\'cliente-logo-fallback\'>CA</div>'">
+                  <img src="imagens/logo-nbserralheria.jfif" alt="Logo NB Serralheria" onerror="this.parentElement.innerHTML='<div class=\'cliente-logo-fallback\'>NB</div>'">
                 </div>
                 <div class="cliente-info">
-                  <div class="cliente-nome">Carlos Roberto</div>
-                  <div class="cliente-empresa">Construtora Alpha</div>
+                  <div class="cliente-nome">Ederson</div>
+                  <div class="cliente-empresa">NB Serralheria</div>
                 </div>
               </div>
             </div>
 
-            <!-- Depoimento 3 - Beleza Natural -->
+            <!-- Depoimento 3 - S&B Acrilicos -->
             <div class="depoimento-card">
               <div class="depoimento-aspas"><i class="bi bi-quote"></i></div>
               <div class="depoimento-texto">
@@ -1776,7 +1766,7 @@
               </div>
               <div class="depoimento-cliente">
                 <div class="cliente-logo">
-                  <img src="imagens/logo-sbacrilicos.png" alt="Logo Beleza Natural" onerror="this.parentElement.innerHTML='<div class=\'cliente-logo-fallback\'>BN</div>'">
+                  <img src="imagens/logo-sbacrilicos.png" alt="Logo S&B Acrilicos" onerror="this.parentElement.innerHTML='<div class=\'cliente-logo-fallback\'>SB</div>'">
                 </div>
                 <div class="cliente-info">
                   <div class="cliente-nome">Daniella</div>
@@ -1788,7 +1778,6 @@
           </div>
         </div>
 
-        <!-- Indicadores do carrossel de depoimentos (aparecem apenas em mobile) -->
         <div class="depoimentos-carousel-dots" id="depoimentosDots"></div>
 
       </div>
@@ -1876,12 +1865,8 @@
     
     setTimeout(checkVisibility, 100);
     
-    // ============================================
-    // CARROSSEL DE PLANOS PARA DISPOSITIVOS MÓVEIS - CORRIGIDO
-    // ============================================
-    
+    // CARROSSEL DE PLANOS
     const carouselContainer = document.getElementById('planosCarousel');
-    const planosGridEl = document.getElementById('planosGrid');
     const dotsContainer = document.getElementById('carouselDots');
     const planosCards = document.querySelectorAll('.plano-card');
     
@@ -1889,10 +1874,8 @@
     let currentIndex = 0;
     let isMobile = window.innerWidth <= 768;
     
-    // Função para criar os dots (indicadores)
     function createDots() {
       if (!dotsContainer) return;
-      
       dotsContainer.innerHTML = '';
       planosCards.forEach((_, index) => {
         const dot = document.createElement('div');
@@ -1906,13 +1889,11 @@
       });
     }
     
-    // Função para atualizar o dot ativo baseado na posição de scroll
     function updateActiveDot() {
       if (!isMobile || !carouselContainer) return;
-      
       const scrollPosition = carouselContainer.scrollLeft;
       const cardWidth = planosCards[0]?.offsetWidth || 0;
-      const gap = 15; // gap entre os cards em px (igual ao CSS)
+      const gap = 15;
       const cardTotalWidth = cardWidth + gap;
       
       if (cardTotalWidth > 0) {
@@ -1931,10 +1912,8 @@
       }
     }
     
-    // Função para scroll automático
     function autoScroll() {
       if (!isMobile || !carouselContainer) return;
-      
       const cardWidth = planosCards[0]?.offsetWidth || 0;
       const gap = 15;
       const cardTotalWidth = cardWidth + gap;
@@ -1942,17 +1921,12 @@
       if (cardTotalWidth > 0 && planosCards.length > 0) {
         currentIndex = (currentIndex + 1) % planosCards.length;
         const scrollTo = currentIndex * cardTotalWidth;
-        carouselContainer.scrollTo({
-          left: scrollTo,
-          behavior: 'smooth'
-        });
+        carouselContainer.scrollTo({ left: scrollTo, behavior: 'smooth' });
       }
     }
     
-    // Função para scroll manual até um card específico
     function scrollToCard(index) {
       if (!isMobile || !carouselContainer) return;
-      
       const cardWidth = planosCards[0]?.offsetWidth || 0;
       const gap = 15;
       const cardTotalWidth = cardWidth + gap;
@@ -1960,14 +1934,10 @@
       if (cardTotalWidth > 0) {
         currentIndex = index;
         const scrollTo = currentIndex * cardTotalWidth;
-        carouselContainer.scrollTo({
-          left: scrollTo,
-          behavior: 'smooth'
-        });
+        carouselContainer.scrollTo({ left: scrollTo, behavior: 'smooth' });
       }
     }
     
-    // Função para resetar o auto-scroll
     function resetAutoScroll() {
       if (autoScrollInterval) {
         clearInterval(autoScrollInterval);
@@ -1975,64 +1945,35 @@
       }
     }
     
-    // Função para iniciar o carrossel
     function initCarousel() {
       isMobile = window.innerWidth <= 768;
-      
       if (isMobile && planosCards.length > 0) {
         createDots();
-        
-        // Adicionar listeners de scroll
         if (carouselContainer) {
           carouselContainer.addEventListener('scroll', updateActiveDot);
           carouselContainer.addEventListener('touchend', resetAutoScroll);
           carouselContainer.addEventListener('scrollend', resetAutoScroll);
         }
-        
-        // Iniciar auto-scroll
         if (autoScrollInterval) clearInterval(autoScrollInterval);
         autoScrollInterval = setInterval(autoScroll, 5000);
-        
-        // Garantir que o primeiro dot está ativo
         setTimeout(() => updateActiveDot(), 100);
       } else {
-        // Em desktop, parar o auto-scroll e limpar dots
-        if (autoScrollInterval) {
-          clearInterval(autoScrollInterval);
-        }
-        if (dotsContainer) {
-          dotsContainer.innerHTML = '';
-        }
+        if (autoScrollInterval) clearInterval(autoScrollInterval);
+        if (dotsContainer) dotsContainer.innerHTML = '';
       }
     }
     
-    // Observar mudanças de tamanho da tela
     let resizeTimer;
     window.addEventListener('resize', () => {
       clearTimeout(resizeTimer);
-      resizeTimer = setTimeout(() => {
-        initCarousel();
-      }, 250);
+      resizeTimer = setTimeout(() => initCarousel(), 250);
     });
     
-    // Iniciar carrossel quando o DOM estiver carregado
-    document.addEventListener('DOMContentLoaded', () => {
-      initCarousel();
-    });
-    
-    // Reiniciar carrossel após o fade-in
-    setTimeout(() => {
-      if (window.innerWidth <= 768) {
-        updateActiveDot();
-      }
-    }, 500);
+    document.addEventListener('DOMContentLoaded', () => initCarousel());
+    setTimeout(() => { if (window.innerWidth <= 768) updateActiveDot(); }, 500);
 
-    // ============================================
-    // CARROSSEL DE DEPOIMENTOS PARA DISPOSITIVOS MÓVEIS
-    // ============================================
-    
+    // CARROSSEL DE DEPOIMENTOS - 1 POR VEZ EM MOBILE
     const depoimentosCarousel = document.getElementById('depoimentosCarousel');
-    const depoimentosGrid = document.getElementById('depoimentosGrid');
     const depoimentosDotsContainer = document.getElementById('depoimentosDots');
     const depoimentosCards = document.querySelectorAll('.depoimento-card');
     
@@ -2040,10 +1981,8 @@
     let depoimentosCurrentIndex = 0;
     let isDepoimentosMobile = window.innerWidth <= 768;
     
-    // Função para criar os dots dos depoimentos
     function createDepoimentosDots() {
       if (!depoimentosDotsContainer) return;
-      
       depoimentosDotsContainer.innerHTML = '';
       depoimentosCards.forEach((_, index) => {
         const dot = document.createElement('div');
@@ -2057,68 +1996,46 @@
       });
     }
     
-    // Função para atualizar o dot ativo dos depoimentos
     function updateDepoimentosActiveDot() {
       if (!isDepoimentosMobile || !depoimentosCarousel) return;
-      
       const scrollPosition = depoimentosCarousel.scrollLeft;
       const cardWidth = depoimentosCards[0]?.offsetWidth || 0;
-      const gap = 15;
-      const cardTotalWidth = cardWidth + gap;
       
-      if (cardTotalWidth > 0) {
-        depoimentosCurrentIndex = Math.round(scrollPosition / cardTotalWidth);
+      if (cardWidth > 0) {
+        depoimentosCurrentIndex = Math.round(scrollPosition / cardWidth);
         depoimentosCurrentIndex = Math.min(depoimentosCurrentIndex, depoimentosCards.length - 1);
         depoimentosCurrentIndex = Math.max(depoimentosCurrentIndex, 0);
         
         const dots = document.querySelectorAll('.depoimentos-dot');
         dots.forEach((dot, idx) => {
-          if (idx === depoimentosCurrentIndex) {
-            dot.classList.add('active');
-          } else {
-            dot.classList.remove('active');
-          }
+          if (idx === depoimentosCurrentIndex) dot.classList.add('active');
+          else dot.classList.remove('active');
         });
       }
     }
     
-    // Função para scroll automático dos depoimentos
     function autoScrollDepoimentos() {
       if (!isDepoimentosMobile || !depoimentosCarousel) return;
-      
       const cardWidth = depoimentosCards[0]?.offsetWidth || 0;
-      const gap = 15;
-      const cardTotalWidth = cardWidth + gap;
       
-      if (cardTotalWidth > 0 && depoimentosCards.length > 0) {
+      if (cardWidth > 0 && depoimentosCards.length > 0) {
         depoimentosCurrentIndex = (depoimentosCurrentIndex + 1) % depoimentosCards.length;
-        const scrollTo = depoimentosCurrentIndex * cardTotalWidth;
-        depoimentosCarousel.scrollTo({
-          left: scrollTo,
-          behavior: 'smooth'
-        });
+        const scrollTo = depoimentosCurrentIndex * cardWidth;
+        depoimentosCarousel.scrollTo({ left: scrollTo, behavior: 'smooth' });
       }
     }
     
-    // Função para scroll manual até um card específico dos depoimentos
     function scrollToDepoimentoCard(index) {
       if (!isDepoimentosMobile || !depoimentosCarousel) return;
-      
       const cardWidth = depoimentosCards[0]?.offsetWidth || 0;
-      const gap = 15;
-      const cardTotalWidth = cardWidth + gap;
       
-      if (cardTotalWidth > 0) {
+      if (cardWidth > 0) {
         depoimentosCurrentIndex = index;
-        const scrollTo = depoimentosCurrentIndex * cardTotalWidth;
-        depoimentosCarousel.scrollTo({
-          left: scrollTo,
-          behavior: 'smooth'
-        });
+        const scrollTo = depoimentosCurrentIndex * cardWidth;
+        depoimentosCarousel.scrollTo({ left: scrollTo, behavior: 'smooth' });
       }
     }
     
-    // Função para resetar o auto-scroll dos depoimentos
     function resetDepoimentosAutoScroll() {
       if (depoimentosAutoScrollInterval) {
         clearInterval(depoimentosAutoScrollInterval);
@@ -2126,43 +2043,26 @@
       }
     }
     
-    // Função para iniciar o carrossel de depoimentos
     function initDepoimentosCarousel() {
       isDepoimentosMobile = window.innerWidth <= 768;
-      
       if (isDepoimentosMobile && depoimentosCards.length > 0) {
         createDepoimentosDots();
-        
         if (depoimentosCarousel) {
           depoimentosCarousel.addEventListener('scroll', updateDepoimentosActiveDot);
           depoimentosCarousel.addEventListener('touchend', resetDepoimentosAutoScroll);
           depoimentosCarousel.addEventListener('scrollend', resetDepoimentosAutoScroll);
         }
-        
         if (depoimentosAutoScrollInterval) clearInterval(depoimentosAutoScrollInterval);
         depoimentosAutoScrollInterval = setInterval(autoScrollDepoimentos, 6000);
-        
         setTimeout(() => updateDepoimentosActiveDot(), 100);
       } else {
-        if (depoimentosAutoScrollInterval) {
-          clearInterval(depoimentosAutoScrollInterval);
-        }
-        if (depoimentosDotsContainer) {
-          depoimentosDotsContainer.innerHTML = '';
-        }
+        if (depoimentosAutoScrollInterval) clearInterval(depoimentosAutoScrollInterval);
+        if (depoimentosDotsContainer) depoimentosDotsContainer.innerHTML = '';
       }
     }
     
-    // Iniciar carrossel de depoimentos
-    document.addEventListener('DOMContentLoaded', () => {
-      initDepoimentosCarousel();
-    });
-    
-    setTimeout(() => {
-      if (window.innerWidth <= 768) {
-        updateDepoimentosActiveDot();
-      }
-    }, 500);
+    document.addEventListener('DOMContentLoaded', () => initDepoimentosCarousel());
+    setTimeout(() => { if (window.innerWidth <= 768) updateDepoimentosActiveDot(); }, 500);
   </script>
 
 </body>

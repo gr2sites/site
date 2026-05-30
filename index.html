@@ -262,6 +262,7 @@
       .nav-menu.active li:nth-child(2) { transition-delay: 0.2s; }
       .nav-menu.active li:nth-child(3) { transition-delay: 0.3s; }
       .nav-menu.active li:nth-child(4) { transition-delay: 0.4s; }
+      .nav-menu.active li:nth-child(5) { transition-delay: 0.5s; }
     }
 
     /* ============================================ */
@@ -515,7 +516,7 @@
       letter-spacing: 2px;
     }
 
-    /* Informações do cliente */
+    /* Informações do cliente com LOGO */
     .depoimento-cliente {
       display: flex;
       align-items: center;
@@ -525,17 +526,37 @@
       border-top: 1px solid #e5e7eb;
     }
 
-    .cliente-avatar {
-      width: 45px;
-      height: 45px;
-      background: linear-gradient(135deg, var(--azul-bright), var(--azul-neon));
-      border-radius: 50%;
+    /* Container da logo do cliente */
+    .cliente-logo {
+      width: 55px;
+      height: 55px;
+      background: #f3f4f6;
+      border-radius: 12px;
       display: flex;
       align-items: center;
       justify-content: center;
+      overflow: hidden;
+      flex-shrink: 0;
+      border: 1px solid #e5e7eb;
+    }
+
+    .cliente-logo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* Fallback para quando a imagem não carregar */
+    .cliente-logo-fallback {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, var(--azul-bright), var(--azul-neon));
       color: white;
       font-weight: bold;
-      font-size: 1.2rem;
+      font-size: 1.5rem;
     }
 
     .cliente-info {
@@ -620,10 +641,9 @@
         margin-bottom: 12px;
       }
 
-      .cliente-avatar {
-        width: 38px;
-        height: 38px;
-        font-size: 1rem;
+      .cliente-logo {
+        width: 45px;
+        height: 45px;
       }
 
       .cliente-nome {
@@ -1685,7 +1705,7 @@
       </div>
     </section>
 
-    <!-- SEÇÃO 6: CLIENTES SATISFEITOS - NOVA SEÇÃO -->
+    <!-- SEÇÃO 6: CLIENTES SATISFEITOS - COM LOGOS DOS CLIENTES -->
     <section id="clientes" class="clientes fade-in-section">
       <div class="container">
         <h2 class="section-title">Clientes Satisfeitos</h2>
@@ -1693,7 +1713,7 @@
         <div class="depoimentos-carousel-container" id="depoimentosCarousel">
           <div class="depoimentos-grid" id="depoimentosGrid">
             
-            <!-- Depoimento 1 -->
+            <!-- Depoimento 1 - Moda & Estilo -->
             <div class="depoimento-card">
               <div class="depoimento-aspas"><i class="bi bi-quote"></i></div>
               <div class="depoimento-texto">
@@ -1707,7 +1727,9 @@
                 <i class="bi bi-star-fill"></i>
               </div>
               <div class="depoimento-cliente">
-                <div class="cliente-avatar">AM</div>
+                <div class="cliente-logo">
+                  <img src="imagens/logo_moda_estilo.png" alt="Logo Moda & Estilo" onerror="this.parentElement.innerHTML='<div class=\'cliente-logo-fallback\'>ME</div>'">
+                </div>
                 <div class="cliente-info">
                   <div class="cliente-nome">Ana Maria Silva</div>
                   <div class="cliente-empresa">Moda & Estilo</div>
@@ -1715,7 +1737,7 @@
               </div>
             </div>
 
-            <!-- Depoimento 2 -->
+            <!-- Depoimento 2 - Construtora Alpha -->
             <div class="depoimento-card">
               <div class="depoimento-aspas"><i class="bi bi-quote"></i></div>
               <div class="depoimento-texto">
@@ -1729,7 +1751,9 @@
                 <i class="bi bi-star-fill"></i>
               </div>
               <div class="depoimento-cliente">
-                <div class="cliente-avatar">CR</div>
+                <div class="cliente-logo">
+                  <img src="imagens/logo_construtora_alpha.png" alt="Logo Construtora Alpha" onerror="this.parentElement.innerHTML='<div class=\'cliente-logo-fallback\'>CA</div>'">
+                </div>
                 <div class="cliente-info">
                   <div class="cliente-nome">Carlos Roberto</div>
                   <div class="cliente-empresa">Construtora Alpha</div>
@@ -1737,7 +1761,7 @@
               </div>
             </div>
 
-            <!-- Depoimento 3 -->
+            <!-- Depoimento 3 - Beleza Natural -->
             <div class="depoimento-card">
               <div class="depoimento-aspas"><i class="bi bi-quote"></i></div>
               <div class="depoimento-texto">
@@ -1751,10 +1775,12 @@
                 <i class="bi bi-star-fill"></i>
               </div>
               <div class="depoimento-cliente">
-                <div class="cliente-avatar">FS</div>
+                <div class="cliente-logo">
+                  <img src="imagens/logo-sbacrilicos.png" alt="Logo Beleza Natural" onerror="this.parentElement.innerHTML='<div class=\'cliente-logo-fallback\'>BN</div>'">
+                </div>
                 <div class="cliente-info">
-                  <div class="cliente-nome">Fernanda Souza</div>
-                  <div class="cliente-empresa">Beleza Natural</div>
+                  <div class="cliente-nome">Daniella</div>
+                  <div class="cliente-empresa">S&B Acrilicos</div>
                 </div>
               </div>
             </div>
